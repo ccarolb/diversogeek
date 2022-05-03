@@ -1,0 +1,45 @@
+body {
+    /* seta margem automática da página, para que ela fique responsiva */
+    margin: auto;
+
+    /* define que o body ocupe toda a largura disponível da página */
+    width: 100%;
+}
+
+.container {
+    /* seta altura e largura do cabeçalho */
+    width: 100%;
+    height: 203px;
+
+    /* seta a cor do cabeçalho */
+    background-color: #E77CA9;
+
+    /* define o cabeçalho como um container de flexbox */
+    display: flex;
+
+    /* espaça os elementos img e ul igualmente dentro do cabeçalho */
+    justify-content: space-evenly;
+
+    /* alinha os elementos img e ul no centro do cabeçalho (em sentido vertical) */
+    align-items: center;
+}
+
+.item img {
+    /* seta as dimensões do logotipo */
+    width: 303px;
+    height: 50%;
+}
+
+nav {}
+
+/* dispõe os elementos do menu lado a lado */
+nav li {
+    display: inline;
+    color: #FFE600;
+
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFE600;
+}
