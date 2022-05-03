@@ -1,4 +1,7 @@
 body {
+    /* seta a família de fontes utilizada no projeto */
+    font-family: 'Oswald', 'Lato';
+
     /* seta margem automática da página, para que ela fique responsiva */
     margin: auto;
 
@@ -17,29 +20,64 @@ body {
     /* define o cabeçalho como um container de flexbox */
     display: flex;
 
-    /* espaça os elementos img e ul igualmente dentro do cabeçalho */
+    /* elementos img e ul distribuídos igualmente dentro do cabeçalho */
     justify-content: space-evenly;
+
+    /* aumenta em 20px o tamanho do espaço entre os elementos do menu e entre o menu e o logotipo*/
+    gap: 20px;
 
     /* alinha os elementos img e ul no centro do cabeçalho (em sentido vertical) */
     align-items: center;
 }
 
-.item img {
+.logo {
     /* seta as dimensões do logotipo */
     width: 303px;
     height: 50%;
 }
 
-nav {}
 
-/* dispõe os elementos do menu lado a lado */
-nav li {
+.menu li {
+    /* prepara position para que o submenu possa ter sua posição ajustada em relação ao menu pai */
+    position: relative;
+
+    /* dispõe os elementos do menu lado a lado */
     display: inline;
-    color: #FFE600;
+}
+
+#submenu {
+    /* ajusta o position para absolute para que o submenu possa ser mudado de lugar */
+    position: absolute;
+
+    /* define um tamanho para o submenu para que "categorias" aumente sua área clicável */
+    width: 1px;
+
+    /* esconde o submenu inicialmente */
+    display: none;
+
+
 
 }
 
-nav a {
+/* define estilo das opções do submenu */
+#submenu a {
+    color: #C4135D;
+    font-size: 22px;
+}
+
+/* ao passar o mouse nas opções do submenu, a cor será amarelo */
+#submenu a:hover {
+    color: #FFE600;
+}
+
+/* define estilo das opções do menu */
+.menu a {
     text-decoration: none;
     color: #FFE600;
+    font-size: 24px;
+}
+
+/* ao passar o mouse nas opções do menu, a cor será branco */
+.menu a:hover {
+    color: white;
 }

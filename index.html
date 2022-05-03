@@ -5,25 +5,54 @@
     <meta charset="UTF-8">
     <title>diversogeek</title>
 
+    <!-- linka a fonte Oswald e a fonte Lato como parte da família de fontes do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- linka o documento css ao projeto -->
     <link rel="stylesheet" href="style.css" type="text/css">
+
+    <!-- linka o jquery ao projeto -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
+
+    <script>
+        $(document).ready(function () {
+
+            //evento que define que ao clicar em categorias...
+            $("#categorias a").click(function () {
+
+                //...o submenu irá aparecer e desaparecer, de acordo com o clique...
+                $("#submenu").toggle(100);
+
+                //...e o display do submenu será em block (lista vertical), e sua posição será mudada para ficar abaixo de categorias.
+                $("#submenu li").css({ "display": "block", "top": "100px", "right": "50px" });
+            })
+        });
+    </script>
 
     <!-- Header da página com logo e menu -->
     <header class="container">
 
         <!-- Logo da página -->
-        <div class="item logo"><img src="/assets/logo.png" alt="logo diversogeek"></div>
+        <div class="item"><img src="/assets/logo.png" alt="logo diversogeek" class="logo"></div>
 
         <!-- Menu principal da página, dentro do header. -->
-        <nav class="item">
-            <ul>
-                <li>home</li>
-                <li><a href="anime.html">categorias</a></li>
-                <!-- <li><a href="cinema.html">cinema</a></li>
-                <li><a href="games.html">games</a></li>
-                <li><a href="séries">livros</a></li> -->
+        <nav class="menu item">
+            <ul class="container">
+                <li><a href="#">home</a></li>
+                <li id="categorias"><a href="#">categorias</a></li>
+                <ul id="submenu">
+                    <li><a href="#">cinema</a></li>
+                    <li><a href="#">animes</a></li>
+                    <li><a href="#">games</a></li>
+                    <li><a href="#">séries</a></li>
+                    <li><a href="#">livros</a></li>
+                </ul>
                 <li><a href="contato.html">contato</a></li>
             </ul>
         </nav>
