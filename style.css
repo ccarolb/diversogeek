@@ -9,6 +9,30 @@ body {
     width: 100%;
 }
 
+h1 {
+    font-size: 32px;
+    color: #E77CA9;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Lato';
+}
+
+a {
+    text-decoration: none;
+    color: #C4135D;
+    width: fit-content;
+}
+
+a:hover {
+    color: #FFE600;
+}
+
 .container {
     /* seta altura e largura do cabeçalho */
     width: 100%;
@@ -72,7 +96,6 @@ body {
 
 /* define estilo das opções do menu */
 .menu a {
-    text-decoration: none;
     color: #FFE600;
     font-size: 24px;
 }
@@ -82,37 +105,36 @@ body {
     color: white;
 }
 
+main h1 {
+    text-align: center;
+}
+
 .section {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 30px;
-    /* margin-left: 400px;
-    margin-right: 400px; */
+    /* centraliza a section no meio da página */
     margin: 0 auto;
-    align-items: center;
 
-}
+    /* determina que section tenha apenas a largura total das divs dentro dele */
+    width: fit-content;
 
-.box {
+    /* determina que section será flexbox */
     display: flex;
-    flex-flow: column wrap;
+
+    /* determina a direção de flex em linha e que será wrap (para cada linha que os itens não couberem todos, terá quebra de linha) */
+    flex-flow: row wrap;
+
+    /* determina o espaçamento entre o card e o box */
     gap: 30px;
 }
 
-.box img {
-    width: 185px;
-    height: 104px;
+.section p,
+.section h2 {
+    /* zera a margem dos parágrafos e dos títulos contidos em section */
+    margin: 0;
 }
 
+.card h2,
 .card p {
-    font-family: 'Lato';
     width: 290px;
-    font-size: 18px;
-}
-
-.card h2 {
-    width: 290px;
-    font-size: 24px;
 }
 
 .card img {
@@ -120,7 +142,27 @@ body {
     height: 171px;
 }
 
-.hermione {
+.box {
     display: flex;
-    max-width: 514px;
+    flex-flow: column wrap;
+    gap: 25px;
+}
+
+.box img {
+    width: 200px;
+    height: 125px;
+}
+
+.posts {
+    display: flex;
+
+    gap: 15px;
+}
+
+.text {
+    max-height: 104px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
