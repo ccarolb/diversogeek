@@ -33,11 +33,27 @@
                 $("#submenu li").css({ "display": "block", "top": "95px", "right": "80px" });
             })
 
-
             $(".hidden").hide();
             $(".ler-mais").click(function () {
                 $(".hidden").show();
             })
+
+
+            // Função para mostrar o botão de voltar ao topo caso a pessoa scrolle para baixo mais que 500px
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 500) {
+                    $("#volta-topo").css({ "display": "block" });
+                } else {
+                    $("#volta-topo").css({ "display": "none" });
+                }
+            });
+
+            $("#volta-topo").click(function () {
+                $("html").animate({ scrollTop: 0 }, 500);
+
+            })
+
+
 
         });
     </script>
@@ -51,16 +67,12 @@
         <!-- Menu principal da página, dentro do header. -->
         <nav class="menu item">
             <ul class="container">
-                <li><a href="#">home</a></li>
-                <li id="categorias"><a href="#">categorias</a></li>
-                <ul id="submenu">
-                    <li><a href="#">cinema</a></li>
-                    <li><a href="#">animes</a></li>
-                    <li><a href="#">games</a></li>
-                    <li><a href="#">séries</a></li>
-                    <li><a href="#">livros</a></li>
-                </ul>
+                <li><a id="home">home</a></li>
                 <li><a href="contato.html">contato</a></li>
+                <li><a href="sobre.html">sobre</a></li>
+                <li><a href="#">cinema</a></li>
+                <li><a href="#">animes</a></li>
+                <li><a href="#">séries</a></li>
             </ul>
         </nav>
     </header>
@@ -235,36 +247,32 @@
             </div>
 
             <div class="news hidden">
-                <a href="msmarvel.html"><img src="assets/msmarvel.png" alt=""></a>
+                <img src="assets/msmarvel.png" alt="">
 
                 <div class="news-text">
                     <a href="#">séries</a>
 
-                    <a href="msmarvel.html">
-                        <h2>Conheça a nova Ms. Marvel, Khamala Khan</h2>
-                        <p>Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar fermentum
-                            eros eu
-                            commodo. Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar
-                            fermentum eros eu commodo.</p>
-                    </a>
+                    <h2>Conheça a nova Ms. Marvel, Khamala Khan</h2>
+                    <p>Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar fermentum
+                        eros eu
+                        commodo. Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar
+                        fermentum eros eu commodo.</p>
 
                 </div>
 
             </div>
 
             <div class="news hidden">
-                <a href="vanya.html"><img src="assets/vanya.jpg" alt=""></a>
+                <img src="assets/vanya.jpg" alt="">
 
                 <div class="news-text">
                     <a href="#">séries</a>
 
-                    <a href="vanya.html">
-                        <h2>O trauma de Vanya e a transgeneridade</h2>
-                        <p>Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar fermentum
-                            eros eu
-                            commodo. Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar
-                            fermentum eros eu commodo.</p>
-                    </a>
+                    <h2>O trauma de Vanya e a transgeneridade</h2>
+                    <p>Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar fermentum
+                        eros eu
+                        commodo. Suspendisse a nisi et sapien pharetra molestie vel sed leo. Vestibulum pulvinar
+                        fermentum eros eu commodo.</p>
 
                 </div>
 
@@ -295,9 +303,10 @@
                 </div>
 
             </div>
-            <button class="ler-mais">Ler mais notícias</button>
-        </section>
 
+            <button type="button" class="ler-mais">Ler mais notícias</button>
+        </section>
+        <button type="button" onclick="topo()" id="volta-topo">Voltar ao topo</button>
     </main>
 
 </body>
