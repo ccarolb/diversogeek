@@ -11,12 +11,18 @@ body {
 
 img {
     border-radius: 2px;
+    opacity: 0.9;
+}
+
+img:active {
+    opacity: 1;
 }
 
 h1 {
-    margin: 0;
+    margin: 50px auto;
     font-size: 32px;
     color: #E77CA9;
+    text-align: center;
 }
 
 h2 {
@@ -113,13 +119,9 @@ a:hover {
     color: white;
 }
 
-main h1 {
-    text-align: center;
-}
-
 .reads-container {
     /* centraliza a section no meio da página */
-    margin: 0 auto;
+    margin: 70px auto;
 
     /* determina que section tenha apenas a largura total das divs dentro dele */
     width: fit-content;
@@ -174,9 +176,18 @@ main h1 {
     align-self: center;
 }
 
-.news-container {
+.div {
     width: fit-content;
     margin: 0 auto;
+    width: 852px;
+    height: 0px;
+
+    border: 1px solid #000000;
+}
+
+.news-container {
+    width: fit-content;
+    margin: 50px auto;
     display: flex;
     gap: 25px;
     flex-flow: column wrap;
@@ -197,4 +208,20 @@ main h1 {
     display: flex;
     flex-flow: column;
     max-width: 500px;
+}
+
+.ler-mais {
+    width: 304px;
+    height: 69px;
+    background-color: #FFD952;
+    color: #434343;
+    font-size: 30px;
+    font-family: 'Oswald';
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.ler-mais:active {
+    color: white;
 }
