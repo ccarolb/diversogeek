@@ -44,47 +44,49 @@
     </header>
 
     <main>
+        <div class="form">
+            <form>
+                <label for="nome">Nome completo</label>
+                <input id="nome" required type="text" name="nome">
 
-        <form>
-            <label for="nome">Nome completo</label>
-            <input id="nome" required type="text" name="nome">
+                <label for="email">Email</label>
+                <input id="email" required type="email" name="email">
 
-            <label for="email">Email</label>
-            <input id="email" required type="email" name="email">
+                <label for="dataNasc">Data de nascimento</label>
+                <input id="dataNasc" type="date" name="dataNasc">
 
-            <label for="dataNasc">Data de nascimento</label>
-            <input id="dataNasc" type="date" name="dataNasc">
+                <label for="genero">Gênero</label>
+                <input id="fCis" type="radio" name="genero" value="Feminino Cisgênero">
+                <label for="fCis">Feminino Cisgênero</label>
+                <input id="mCis" type="radio" name="genero" value="Masculino Cisgênero">
+                <label for="mCis">Masculino Cisgênero</label>
+                <input id="fTrans" type="radio" name="genero" value="Feminino Transgênero">
+                <label for="fTrans">Feminino Transgênero</label>
+                <input id="mTrans" type="radio" name="genero" value="Masculino Transgênero">
+                <label for="mTrans">Masculino Transgênero</label>
+                <input id="nBin" type="radio" name="genero" value="Não Binário">
+                <label for="nBin">Não Binário</label>
+                <input id="nInformar" type="radio" name="genero" value="Prefiro não informar">
+                <label for="nInformar">Prefiro não informar</label>
+                <input id="outro" type="radio" name="genero" value="Outro">
+                <label for="outro">Outro</label>
 
-            <label for="genero">Gênero</label>
-            <input id="fCis" type="radio" name="genero" value="Feminino Cisgênero">
-            <label>Feminino Cisgênero</label>
-            <input id="mCis" type="radio" name="genero" value="Masculino Cisgênero">
-            <label>Masculino Cisgênero</label>
-            <input id="fTrans" type="radio" name="genero" value="Feminino Transgênero">
-            <label>Feminino Transgênero</label>
-            <input id="mTrans" type="radio" name="genero" value="Masculino Transgênero">
-            <label for="mTrans">Masculino Transgênero</label>
-            <input id="nBin" type="radio" name="genero" value="Não Binário">
-            <label for="nBin">Não Binário</label>
-            <input id="nInformar" type="radio" name="genero" value="Prefiro não informar">
-            <label for="nInformar">Prefiro não informar</label>
-            <input id="outro" type="radio" name="genero" value="Outro">
-            <label for="outro">Outro</label>
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(99) 9999-9999"
+                    pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})"
+                    title="O telefone informado precisa ser no formato (99) 9999-9999" />
 
-            <label>Telefone</label>
-            <input type="tel" name="phone" placeholder="(99) 9999-9999"
-                pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})"
-                title="O telefone informado precisa ser no formato (99) 9999-9999" />
-
-            <label for="nota">De 0 a 10, como você avalia nosso trabalho? (sua opinião é muito importante para
-                nós!)</label>
-            <input required type="number" id="nota" name="nota" min="0" max="10" step="1">
+                <label for="nota">De 0 a 10, como você avalia nosso trabalho? (sua opinião é muito importante para
+                    nós!)</label>
+                <input type="number" id="nota" name="nota" min="0" max="10" step="1">
 
 
-            <label>Sua mensagem para nós</label>
-            <textarea required name="message" rows="10" cols="30"></textarea>
-        </form>
+                <label for="mensagem">Sua mensagem para nós</label>
+                <textarea id="mensagem" required name="mensagem" rows="10" cols="30"></textarea>
 
+                <input id="enviar" type="submit" value="Enviar">
+            </form>
+        </div>
     </main>
 
     <!-- Botão que ao clicar, volta ao topo da página. -->

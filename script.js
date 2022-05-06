@@ -26,5 +26,18 @@ $(document).ready(function () {
     })
 
 
+    $("#enviar").click(function () {
+        let nome = $("#nome").val();
+        let mensagem = $("#mensagem").val();
+
+        if (nome.includes(" ") || nome == null) {
+            alert("Por favor preencha o campo de nome corretamente.");
+        }
+        if (mensagem.includes(" ") || mensagem == null) {
+            alert("Por favor preencha o campo de mensagem corretamente.");
+        }
+
+    })
+
 
 });
