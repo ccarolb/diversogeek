@@ -25,15 +25,19 @@ $(document).ready(function () {
 
     })
 
-
+    // Função que ao clicar no botão enviar valida se o campo de nome e o campo de mensagem estão vazios ou estão preenchidos apenas por espaço, e se uma das condições forem verdadeiras, o navegador exibe uma mensagem pedindo para o usuário preencher de forma correta.
     $("#enviar").click(function () {
-        let nome = $("#nome").val();
-        let mensagem = $("#mensagem").val();
 
-        if (nome.includes(" ") || nome == null) {
+        function apenasEspaco(string) {
+            let str = string.val()
+
+            return str.trim().length === 0
+        }
+
+        if (apenasEspaco($("#nome")) || nome == null) {
             alert("Por favor preencha o campo de nome corretamente.");
         }
-        if (mensagem.includes(" ") || mensagem == null) {
+        if (apenasEspaco($("#mensagem")) || mensagem == null) {
             alert("Por favor preencha o campo de mensagem corretamente.");
         }
 
