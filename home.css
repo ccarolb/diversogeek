@@ -1,0 +1,103 @@
+img {
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+img:active {
+    opacity: 1;
+}
+
+#home {
+    color: #b13a6c;
+}
+
+.reads-container {
+    /* centraliza a section no meio da página */
+    margin: 70px auto;
+
+    /* determina que section tenha apenas a largura total das divs dentro dele */
+    width: fit-content;
+
+    /* determina que section será flexbox */
+    display: flex;
+
+    /* determina a direção de flex em linha e que será wrap (para cada linha que os itens não couberem todos, terá quebra de linha) */
+    flex-flow: row wrap;
+
+    /* determina o espaçamento entre o card e o box */
+    gap: 30px;
+}
+
+.reads-container p,
+.reads-container h2 {
+    /* zera a margem dos parágrafos e dos títulos contidos em section */
+    margin: 0;
+}
+
+.card h2,
+.card p {
+    width: 290px;
+}
+
+.card img {
+    width: 290px;
+    height: 171px;
+}
+
+.box {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 25px;
+}
+
+.box img {
+    width: 200px;
+    height: 125px;
+}
+
+.posts {
+    display: flex;
+    gap: 15px;
+}
+
+.text {
+    max-height: 104px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.div {
+    width: fit-content;
+    margin: 0 auto;
+    width: 852px;
+    height: 0px;
+
+    border: 1px solid #000000;
+}
+
+.news-container {
+    width: fit-content;
+    margin: 50px auto 150px auto;
+    display: flex;
+    gap: 25px;
+    flex-flow: column wrap;
+}
+
+.news-container img {
+    width: 350px;
+    height: 220px;
+}
+
+.news {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.news-text {
+    display: flex;
+    flex-flow: column;
+    max-width: 500px;
+}
