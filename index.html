@@ -23,24 +23,17 @@
     <script>
         $(document).ready(function () {
 
-            //evento que define que ao clicar em categorias...
-            $("#categorias a").click(function () {
-
-                //...o submenu irá aparecer e desaparecer, de acordo com o clique...
-                $("#submenu").toggle(100);
-
-                //...e o display do submenu será em block (lista vertical), e sua posição será mudada para ficar abaixo de categorias.
-                $("#submenu li").css({ "display": "block", "top": "95px", "right": "80px" });
-            })
-
+            // Aqui os elementos que possuem a classe .hidden são escondidos no momento do carregamento da página
             $(".hidden").hide();
+
+            // Aqui é definida uma função para, quando o usuário clicar no botão "Ler mais notícias", os elementos com a classe hidden são mostrados, e o botão "Ler mais notícias" é escondido (simulando que o usuário já carregou todos os posts.)
             $(".ler-mais").click(function () {
                 $(".hidden").show();
                 $(".ler-mais").hide();
             })
 
 
-            // Função para mostrar o botão de voltar ao topo caso a pessoa scrolle para baixo mais que 500px
+            // Aqui é definida outra função para, quando a página for scrollada 500px para baixo, o botão de "Voltar ao topo" é mostrado. Do contrário, ele fica escondido.
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 500) {
                     $("#volta-topo").css({ "display": "block" });
@@ -49,6 +42,7 @@
                 }
             });
 
+            // Aqui a função que determina que o usuário voltará ao topo da página quando clicar no botão "Voltar ao topo".
             $("#volta-topo").click(function () {
                 $("html").animate({ scrollTop: 0 }, 500);
 
@@ -80,8 +74,9 @@
 
     <main>
 
-
+        <!-- Seção de mais lidas da semana -->
         <h1>Mais lidas da semana</h1>
+
         <section class="reads-container">
 
             <div class="card">
@@ -134,12 +129,10 @@
         </section>
 
 
-
+        <!-- Div que serve como a linha de divisória entre uma seção e outra -->
         <div class="div"></div>
 
-
-
-
+        <!-- Seção de notícias recentes -->
         <h1>Notícias recentes</h1>
         <section class="news-container">
 
@@ -221,6 +214,7 @@
 
             </div>
 
+            <!-- Aqui as notícias começam a ter a classe hidden, que no javascript é atribuído .hide() para esconder essas notícias e mostrá-las depois de clicar no botão "Ler mais notícias". -->
             <div class="news hidden">
                 <img src="assets/luffy.png" alt="">
 
@@ -305,25 +299,32 @@
 
             </div>
 
+            <!-- Botão que ao clicar, carrega mais notícias. -->
             <button type="button" class="ler-mais">Ler mais notícias</button>
         </section>
-        <button type="button" onclick="topo()" id="volta-topo">Voltar ao topo</button>
+
+        <!-- Botão que ao clicar, volta ao topo da página. -->
     </main>
 
+    <button type="button" id="volta-topo">Voltar ao topo</button>
+
+
+    <!-- Rodapé da página -->
     <footer class="container">
-        <div class="footer">
+        <div>
             <!-- Logo da página -->
             <div class="item"></div><a href="index.html"><img src="assets/logo.png" alt="logo diversogeek"
                     class="logo"></a>
         </div>
 
+        <!-- Ícones das redes sociais -->
         <div class="redes-sociais"><img src=" /assets/instagram.png" alt="">
             <div><img src="/assets/facebook.png" alt=""></div>
             <div><img src="/assets/youtube.png" alt=""></div>
             <div><img src="/assets/twitter.png" alt=""></div>
         </div>
-        </div>
     </footer>
+
 </body>
 
 </html>
