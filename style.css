@@ -9,14 +9,16 @@ body {
     width: 100%;
 }
 
-h1 {
+h1,
+caption {
     margin: 50px auto;
     font-size: 32px;
     color: #E77CA9;
     text-align: center;
 }
 
-h2 {
+h2,
+thead {
     margin: 0;
     font-size: 24px;
 }
@@ -99,7 +101,7 @@ a:hover {
 }
 
 
-#volta-topo {
+#voltaTopo {
     position: fixed;
     display: none;
     bottom: 30px;
@@ -118,7 +120,7 @@ a:hover {
 }
 
 .ler-mais:active,
-#volta-topo:active {
+#voltaTopo:active {
     color: #b13a6c;
 }
 

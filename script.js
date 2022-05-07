@@ -13,14 +13,14 @@ $(document).ready(function () {
     // Aqui é definida outra função para, quando a página for scrollada 500px para baixo, o botão de "Voltar ao topo" é mostrado. Do contrário, ele fica escondido.
     $(window).scroll(function () {
         if ($(this).scrollTop() > 500) {
-            $("#volta-topo").css({ "display": "block" });
+            $("#voltaTopo").css({ "display": "block" });
         } else {
-            $("#volta-topo").css({ "display": "none" });
+            $("#voltaTopo").css({ "display": "none" });
         }
     });
 
     // Aqui a função que determina que o usuário voltará ao topo da página quando clicar no botão "Voltar ao topo".
-    $("#volta-topo").click(function () {
+    $("#voltaTopo").click(function () {
         $("html").animate({ scrollTop: 0 }, 500);
 
     })
