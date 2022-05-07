@@ -2,13 +2,48 @@
     color: #b13a6c;
 }
 
-.audio {
-    width: fit-content;
-    margin: 0 auto;
+main {
+    margin: 70px auto;
+    width: 1100px;
+}
+
+h3 {
+    text-align: center;
 }
 
 .podcast-container {
     display: flex;
-    flex-flow: row wrap;
-    gap: 30px;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 50px 0 15px 0;
+    gap: 50px;
+}
+
+.audio {
+    padding-right: 50px;
+}
+
+
+.img-texto {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.icons {
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 20px 0 150px 0;
+    gap: 50px;
+}
+
+.video {
+    margin-top: 5px;
 }
