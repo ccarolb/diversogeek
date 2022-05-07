@@ -1,0 +1,14 @@
+#sobre {
+    color: #b13a6c;
+}
+
+.audio {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.podcast-container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 30px;
+}
