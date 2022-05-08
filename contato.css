@@ -30,6 +30,11 @@ input {
     width: 100%;
 }
 
+form img {
+    width: 60%;
+    height: 100%;
+}
+
 label {
     font-size: larger;
 }
