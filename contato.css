@@ -23,6 +23,8 @@
     /*Determina o formato de exibição do input e do textarea (em block, significa que cada elemento ocupará uma linha), o tamanho e o peso da fonte digitada, o padding e a cor de fundo */
     input,
     textarea {
+        font-family: 'Lato';
+        font-weight: bold;
         display: block;
         font-size: 14px;
         padding: 10px;
