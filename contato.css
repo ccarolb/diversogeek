@@ -21,6 +21,7 @@
         display: block;
         font-size: 14px;
         padding: 10px;
+        background-color: rgba(230, 216, 223, 0.309);
     }
 
     .form-foto {
@@ -122,6 +123,7 @@
         display: block;
         padding: 40px;
         font-size: 45px;
+        background-color: rgba(245, 220, 232, 0.622);
     }
 
     .form-foto {
