@@ -120,7 +120,8 @@
     }
 
     .ler-mais:active {
-        color: #b13a6c;
+        background-color: #edc949;
+        color: #434343;
     }
 
 }
@@ -264,7 +265,8 @@
     }
 
     .ler-mais:active {
-        color: #b13a6c;
+        background-color: #edc949;
+        color: #434343;
     }
 
 }

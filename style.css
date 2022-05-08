@@ -10,6 +10,10 @@
         width: 100%;
     }
 
+    img {
+        border-radius: 6px;
+    }
+
     h1 {
         margin: 50px auto;
         font-size: 32px;
@@ -128,9 +132,9 @@
         box-shadow: 0px 4px 4px 0px #00000040;
     }
 
-    .ler-mais:active,
     #voltaTopo:active {
-        color: #b13a6c;
+        background-color: #edc949;
+        color: #434343;
     }
 
     .redes-sociais {
@@ -150,6 +154,7 @@
 
 @media only screen and (max-width: 992px) {
 
+
     body {
         /* seta a família de fontes utilizada no projeto */
         font-family: 'Oswald', 'Lato';
@@ -159,6 +164,10 @@
 
         /* define que o body ocupe toda a largura disponível da página */
         width: 100%;
+    }
+
+    img {
+        border-radius: 10px;
     }
 
     h1 {
@@ -277,7 +286,8 @@
     }
 
     #voltaTopo:active {
-        color: #b13a6c;
+        background-color: #edc949;
+        color: #434343;
     }
 
     .redes-sociais {
