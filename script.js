@@ -43,13 +43,13 @@ $(document).ready(function () {
     })
 
 
-    //Evento que muda a cor do input quando o usuário clica(foca) nele.
+    //Evento que muda a cor do input e do textarea quando o usuário clica(foca) nele.
     $("input, textarea").focus(function () {
         $(this).css("background-color", "#FFFFFF");
     });
 
-    //Evento que muda a cor do input quando o usuário para de clicar(focar) nele
+    //Evento que muda a cor do input e do textarea quando o usuário para de clicar(focar) nele
     $("input, textarea").blur(function () {
-        $(this).css("background-color", "rgba(230, 216, 223, 0.309)");
+        $(this).css("background-color", "rgba(245, 220, 232, 0.622)");
     });
 });

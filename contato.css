@@ -1,13 +1,17 @@
+/* Estilização para dispositivos com width mínimo de 992px (desktops, notebooks, etc)*/
 @media only screen and (min-width: 992px) {
 
+    /* Determina que a âncora ativa no menu vai ser de outra cor */
     #contato {
         color: #b13a6c;
     }
 
+    /* Determina margem automática para trazer responsividade */
     main {
         margin: auto;
     }
 
+    /* Determina as dimensões do formulário, a margem e que ele vai ser disposto em flexbox. */
     form {
         width: fit-content;
         display: flex;
@@ -16,35 +20,42 @@
         margin: 0 auto 150px auto;
     }
 
+    /*Determina o formato de exibição do input e do textarea (em block, significa que cada elemento ocupará uma linha), o tamanho e o peso da fonte digitada, o padding e a cor de fundo */
     input,
     textarea {
         display: block;
+        font-weight: bold;
         font-size: 14px;
         padding: 10px;
-        background-color: rgba(230, 216, 223, 0.309);
+        background-color: rgba(245, 220, 232, 0.622);
     }
 
+    /* Determina que o formulário junto com a imagem serão exibidos em flexbox, e serão separados por um espaço entre eles. */
     .form-foto {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Determina que a parte do formulário que contém do nome até a data de nascimento serão dispostos em flexbox, no formato de coluna, com um espaçamento de 40px entre eles. */
     .form-dados {
         display: flex;
         flex-direction: column;
         gap: 40px;
     }
 
+    /* Determina que o input do nome e do email ocuparão 100% do espaço disponível. */
     #nome,
     #email {
         width: 100%;
     }
 
+    /* Determina as dimensões da imagem dentro do formulário */
     form img {
         width: 60%;
         height: 100%;
     }
 
+    /* Dispõe o restante do formulário em flexbox do modo coluna (flex-flow) e determina seu posicionamento (justify-content) e espaçamento (gap) */
     .form-box {
         display: flex;
         justify-content: flex-start;
@@ -52,16 +63,19 @@
         gap: 40px;
     }
 
+    /* Aumenta o tamanho da fonte de label */
     label {
         font-size: larger;
     }
 
+    /* Determina o estilo da fonte da label do radio button */
     .radio {
         font-family: 'Lato';
         font-weight: bold;
         font-size: 16px;
     }
 
+    /* Determina as opções radio dentro de genero como flexbox em linha (flex-flow), posicionamento igual entre todos os elementos (justify-content: space-evenly) e espaçamento de 25px (gap) */
     .genero-opcoes {
         display: flex;
         width: 100%;
@@ -70,15 +84,18 @@
         justify-content: space-evenly;
     }
 
+    /* Determina a label do textarea e o textarea como um display flexbox em coluna */
     .text-area {
         display: flex;
         flex-direction: column;
     }
 
+    /* Centraliza o botão de enviar no meio da página */
     .enviar {
         margin: 0 auto;
     }
 
+    /* Estiliza o botão de enviar */
     .enviar button {
         margin: 10px auto;
         cursor: pointer;
@@ -94,28 +111,27 @@
         box-shadow: 0px 4px 4px 0px #00000040;
     }
 
-    .enviar button:active {
-        background-color: #edc949;
-        color: #434343;
-    }
-
 }
 
+/* Estilização para dispositivos com width máximo de 992px (celulares, tablets, etc) */
 @media only screen and (max-width: 992px) {
 
+    /* Determina que o elemento ativo no menu vai ser de outra cor */
     #contato {
         color: #b13a6c;
     }
 
+    /* Determina margem automática para trazer responsividade */
     main {
         margin: auto;
     }
 
-
+    /* Determina que o formulário vai conter uma margem para cima de 0, para os lados de 116px e para baixo de 150px */
     form {
         margin: 0 116px 150px 116px;
     }
 
+    /*Determina o formato de exibição do input e do textarea (em block, significa que cada elemento ocupará uma linha), o tamanho e o peso da fonte digitada, o padding e a cor de fundo */
     input,
     textarea {
         font-family: 'Lato';
@@ -126,6 +142,7 @@
         background-color: rgba(245, 220, 232, 0.622);
     }
 
+    /* Determina que o formulário junto com a imagem serão exibidos em flexbox coluna reversa (a foto vai aparecer em cima), e serão separados por um espaço entre eles, com os itens alinhados no centro e com um espaçamento entre a foto e o formulário de 100px (gap)*/
     .form-foto {
         display: flex;
         flex-direction: column-reverse;
@@ -134,11 +151,13 @@
         gap: 100px;
     }
 
+    /* Dimensiona a imagem do formulário */
     .form-foto img {
         width: 800px;
         height: auto;
     }
 
+    /* Determina que a parte do formulário que contém do nome até a data de nascimento serão dispostos em flexbox, no formato de coluna, com um espaçamento de 40px entre eles e margem automática para responsividade e centralização no meio da página.*/
     .form-dados {
         display: flex;
         margin: auto;
@@ -146,21 +165,19 @@
         gap: 100px;
     }
 
+    /* Ajusta o tamanho da fonte da label da página de contato */
     .form-dados label,
     form label {
         font-size: 60px;
     }
 
+    /* Determina que o input do nome e do email ocuparão 90% do espaço disponível. */
     #nome,
     #email {
         width: 90%;
     }
 
-    form img {
-        width: 60%;
-        height: 100%;
-    }
-
+    /* Dispõe o restante do formulário em flexbox do modo coluna (flex-flow), determina seu posicionamento (justify-content), espaçamento (gap), e a margem para cima e baixo (para os lados é auto) */
     .form-box {
         margin: 100px auto;
         display: flex;
@@ -169,18 +186,21 @@
         gap: 100px;
     }
 
+    /* Determina o estilo da fonte da label do radio button */
     .radio {
         font-family: 'Lato';
         font-weight: bold;
         font-size: 50px;
     }
 
+    /* Determina borda 0 e redimensiona o radio button */
     input[type=radio] {
         border: 0px;
         width: 40px;
         height: 40px;
     }
 
+    /* Determina que parte do formulário será flex em coluna, com alinhamento no início do container e espaçamento de 50px */
     .genero {
         display: flex;
         gap: 50px;
@@ -188,26 +208,27 @@
         align-items: flex-start;
     }
 
+    /* Determina as opções radio dentro de genero como flexbox em coluna (flex-flow), com espaçamento de 80px (gap) e ocupando 100% do espaço disponível na página*/
     .genero-opcoes {
         display: flex;
         width: 100%;
         flex-flow: column wrap;
         gap: 80px;
-        /* align-items: flex-start; */
-        /* align-content: center; */
-
     }
 
+    /* Determina a label do textarea e o textarea como um display flexbox em coluna */
     .text-area {
         display: flex;
         flex-direction: column;
     }
 
+    /* Centraliza o botão de enviar no meio da página e determine que a div ocupe apenas o espaço de button*/
     .enviar {
         margin: 0 auto;
         width: fit-content;
     }
 
+    /* Estiliza o botão de enviar */
     .enviar button {
         margin: 10px auto;
         cursor: pointer;
@@ -221,11 +242,6 @@
         border: none;
         border-radius: 20px;
         box-shadow: 0px 4px 4px 0px #00000040;
-    }
-
-    .enviar button:active {
-        background-color: #edc949;
-        color: #434343;
     }
 
 }

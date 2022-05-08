@@ -1,35 +1,44 @@
+/* Estilização para dispositivos com width mínimo de 992px (desktops, notebooks, etc)*/
 @media only screen and (min-width: 992px) {
+
+    /* Determina que a âncora ativa no menu vai ser de outra cor */
     #sobre {
         color: #b13a6c;
     }
 
+    /* Determina que o conteúdo de main terá margem 0 para cima e para baixo, e automática pra os lados, para garantir responsividade e centralização. Também determina que o main ocupará 60% do total da página */
     main {
         margin: 0px auto;
         width: 60%;
     }
 
+    /* Determina margem para cima e baixo de 30px e automática para os lados, para os parágrafos e h3 */
     p,
     h3 {
         margin: 30px auto;
     }
 
+    /* Determina que os h3 se alinhem ao centro */
     h3 {
         text-align: center;
     }
 
+    /* Determina que o podcast container será flexbox em linha, com alinhamento de seus itens ao centro, espaçamento de 50px e margens para cima e baixo de 15px */
     .podcast-container {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        margin: 15px 0 15px 0;
+        margin: 15px 0;
         gap: 50px;
     }
 
+    /* Determina que a div audio tenha um padding à direita de 50px */
     .audio {
         padding-right: 50px;
     }
 
 
+    /* Determina que a div img-texto será flexbox em linha, com espaçamento entre seus elementos e alinhamento deles ao centro */
     .img-texto {
         display: flex;
         flex-flow: row nowrap;
@@ -37,30 +46,27 @@
         align-items: center;
     }
 
+    /* Determina width e margem à direita */
     .icons {
         width: 250px;
         margin-right: 60px;
     }
 
+    /* Determina que o video container será flexbox em linha, com alinhamento de seus itens ao centro, espaçamento de 20px e margens para cima e baixo de 20px e 50px*/
     .video-container {
         display: flex;
         flex-flow: row nowrap;
-        align-content: space-between;
         margin: 20px 0 50px 0;
         align-items: center;
         gap: 20px;
     }
 
-
-    .video {
-        margin-top: 5px;
-        flex-grow: 2;
-    }
-
+    /* Determina que as bordas do calendário serão mescladas, sem espaço entre elas */
     table {
         border-collapse: collapse;
     }
 
+    /* Determina estilização e dimensões das células do calendário */
     table td {
         border: 2px solid #E77CA9;
         min-width: 30px;
@@ -68,6 +74,7 @@
         padding: 0 30px 30px 5px;
     }
 
+    /* Determina que o calendario e o texto sobre os eventos serão flexbox em linha, distribuídos igualmente e alinhados ao centro, com espaçamento de 20px entre eles e margem debaixo de 150px*/
     .calendario {
         display: flex;
         align-items: center;
@@ -76,41 +83,49 @@
         justify-content: space-evenly;
     }
 
+    /* Determina a estilização dos dias que não estão no mês vigente */
     .outro-mes {
         background-color: rgba(216, 216, 216, 0.625);
         color: #585858;
     }
 
+    /* Determina a cor das células que contenham eventos no dia */
     .evento {
         background-color: #ffe6004f;
     }
 
+    /* Determina margem superior de 120px em relação ao h1 do calendário */
     .calendario-title {
         margin-top: 120px;
     }
 }
 
+/* Estilização para dispositivos com width máximo de 992px (celulares, tablets, etc) */
 @media only screen and (max-width: 992px) {
+
+    /* Determina que a âncora ativa no menu vai ser de outra cor */
     #sobre {
         color: #b13a6c;
     }
 
-
+    /* Determina que o conteúdo de main terá margem 0 para cima e para baixo, e automática pra os lados, para garantir responsividade e centralização. Também determina que o main ocupará 980px do total da página */
     main {
         margin: 0px auto;
         width: 980px;
     }
 
-
+    /* Determina que os parágrafos e h3 serão alinhados ao centro*/
     p,
     h3 {
         text-align: center;
     }
 
+    /* Determina margens para a direita, para baixo e para a esquerda, para h3 */
     h3 {
         margin: 0 40px 30px 40px;
     }
 
+    /* Determina que o podcast container será flexbox em coluna, com alinhamento de seus itens ao centro, espaçamento de 50px e margens para cima de 50px e para baixo de 15px */
     .podcast-container {
         display: flex;
         flex-flow: column wrap;
@@ -120,6 +135,7 @@
         gap: 50px;
     }
 
+    /* Determina que a div img-texto será flexbox em coluna, com alinhamento de seus elementos ao centro */
     .img-texto {
         display: flex;
         flex-flow: column wrap;
@@ -127,11 +143,13 @@
         align-items: center;
     }
 
+    /* Determina as dimensões para a imagem dentro do container img-texto */
     .img-texto img {
         width: 500px;
         margin: 0 auto;
     }
 
+    /* Determina que o video container será flexbox em coluna, com alinhamento de seus itens ao centro, espaçamento de 20px e margens para cima e baixo de 20px e 50px*/
     .video-container {
         display: flex;
         flex-flow: column wrap;
@@ -141,7 +159,7 @@
         gap: 20px;
     }
 
-
+    /* Determina a margem para o vídeo e suas dimensões, e também determina que caso precise, o vídeo cresça duas vezes o tamanho do container onde se encontra */
     .video {
         margin: 5px auto;
         flex-grow: 2;
@@ -149,10 +167,12 @@
         height: 500px;
     }
 
+    /* Determina que as bordas do calendário serão mescladas, sem espaço entre elas */
     table {
         border-collapse: collapse;
     }
 
+    /* Determina estilização e dimensões das células do calendário */
     table td {
         border: 2px solid #E77CA9;
         min-height: 80px;
@@ -160,10 +180,12 @@
         font-size: 50px;
     }
 
+    /* Determina tamanho da fonte do cabeçalho do calendário */
     table th {
         font-size: 60px;
     }
 
+    /* Determina que o calendario e o texto sobre os eventos serão flexbox em coluna, distribuídos igualmente e alinhados ao centro, com espaçamento de 20px entre eles e margem debaixo de 150px*/
     .calendario {
         width: fit-content;
         display: flex;
@@ -174,19 +196,23 @@
         justify-content: space-evenly;
     }
 
+    /* Determina a estilização dos dias que não estão no mês vigente */
     .outro-mes {
         background-color: rgba(216, 216, 216, 0.625);
         color: #585858;
     }
 
+    /* Determina a cor das células que contenham eventos no dia */
     .evento {
         background-color: #ffe6004f;
     }
 
+    /* Determina margem superior de 120px em relação ao h1 do calendário */
     .calendario-title {
         margin-top: 120px;
     }
 
+    /* Determina que os textos com os eventos sejam alinhados ao centro, tenham margem para cima e para baixo de 30px e tamanho de fonte de 50px */
     .eventos {
         text-align: center;
         margin: 30px auto;
