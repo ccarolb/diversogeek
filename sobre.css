@@ -21,7 +21,7 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        margin: 50px 0 15px 0;
+        margin: 15px 0 15px 0;
         gap: 50px;
     }
 
