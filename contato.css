@@ -6,7 +6,7 @@ form {
     width: fit-content;
     display: flex;
     flex-flow: column wrap;
-    gap: 35px;
+    gap: 40px;
     margin: 0 auto 150px auto;
 }
 
@@ -22,7 +22,7 @@ input {
 .form-dados {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 40px;
 }
 
 #nome,
@@ -45,11 +45,12 @@ label {
     font-size: 16px;
 }
 
-.genero {
+.genero-opcoes {
     display: flex;
     width: 100%;
     flex-flow: row wrap;
-    gap: 20px;
+    gap: 25px;
+    justify-content: space-evenly;
 }
 
 .text-area {
