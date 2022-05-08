@@ -2,15 +2,14 @@ $(document).ready(function () {
 
     // Aqui os elementos que possuem a classe .hidden são escondidos no momento do carregamento da página
     $(".hidden").hide();
-
-    // Aqui é definida uma função para, quando o usuário clicar no botão "Ler mais notícias", os elementos com a classe hidden são mostrados, e o botão "Ler mais notícias" é escondido (simulando que o usuário já carregou todos os posts.)
+    // Aqui é definido um evento para, quando o usuário clicar no botão "Ler mais notícias", os elementos com a classe hidden são mostrados, e o botão "Ler mais notícias" é escondido (simulando que o usuário já carregou todos os posts.)
     $(".ler-mais").click(function () {
         $(".hidden").show();
         $(".ler-mais").hide();
     })
 
 
-    // Aqui é definida outra função para, quando a página for scrollada 500px para baixo, o botão de "Voltar ao topo" é mostrado. Do contrário, ele fica escondido.
+    // Aqui é definido outro evento para, quando a página for scrollada 500px para baixo, o botão de "Voltar ao topo" é mostrado. Do contrário, ele fica escondido.
     $(window).scroll(function () {
         if ($(this).scrollTop() > 500) {
             $("#voltaTopo").css({ "display": "block" });
@@ -19,13 +18,13 @@ $(document).ready(function () {
         }
     });
 
-    // Aqui a função que determina que o usuário voltará ao topo da página quando clicar no botão "Voltar ao topo".
+    // Aqui o evento que determina que o usuário voltará ao topo da página quando clicar no botão "Voltar ao topo".
     $("#voltaTopo").click(function () {
         $("html").animate({ scrollTop: 0 }, 500);
 
     })
 
-    // Função que ao clicar no botão enviar valida se o campo de nome e o campo de mensagem estão vazios ou estão preenchidos apenas por espaço, e se uma das condições forem verdadeiras, o navegador exibe uma mensagem pedindo para o usuário preencher de forma correta.
+    // Evento que ao clicar no botão enviar valida se o campo de nome e o campo de mensagem estão vazios ou estão preenchidos apenas por espaço, e se uma das condições forem verdadeiras, o navegador exibe uma mensagem pedindo para o usuário preencher de forma correta.
     $("#enviar").click(function () {
 
         function apenasEspaco(string) {
@@ -44,4 +43,13 @@ $(document).ready(function () {
     })
 
 
+    //Evento que muda a cor do input quando o usuário clica(foca) nele.
+    $("input").focus(function () {
+        $(this).css("background-color", "#F4E9ED");
+    });
+
+    //Evento que muda a cor do input quando o usuário para de clicar(focar) nele
+    $("input").blur(function () {
+        $(this).css("background-color", "#FFFFFF");
+    });
 });
