@@ -126,6 +126,11 @@
 }
 
 @media only screen and (max-width: 992px) {
+
+    p {
+        display: none;
+    }
+
     img {
         border-radius: 2px;
         opacity: 0.9;
@@ -156,30 +161,30 @@
         gap: 200px;
     }
 
-    .reads-container p,
     .reads-container h2 {
         /* zera a margem dos parágrafos e dos títulos contidos em section */
         margin: 0;
     }
 
     .card h2,
-    .card p {
+    .box h2 {
         width: 900px;
+        max-width: 900px;
     }
 
     .card img {
-        width: 800px;
+        width: 900px;
         height: auto;
     }
 
     .box {
         display: flex;
         flex-flow: column wrap;
-        gap: 150px;
+        gap: 200px;
     }
 
     .box img {
-        width: 800px;
+        width: 900px;
         height: auto;
     }
 
@@ -191,16 +196,15 @@
 
     .text {
         max-height: 104px;
-        max-width: 800px;
+        max-width: 900px;
         display: flex;
         flex-direction: column;
-        align-self: center;
     }
 
     .div {
         width: fit-content;
-        margin: 0 auto;
-        width: 852px;
+        margin: 300px auto 0 auto;
+        width: 800px;
         height: 0px;
 
         border: 1px solid #000000;
@@ -210,35 +214,46 @@
         width: fit-content;
         margin: 50px auto 150px auto;
         display: flex;
-        gap: 25px;
-        flex-flow: column wrap;
+        gap: 60px;
+        flex-flow: row wrap;
     }
 
     .news-container img {
-        width: 700px;
+        width: 530px;
+        height: 310px;
     }
 
     .news {
         display: flex;
         gap: 15px;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: flex-start;
     }
 
     .news-text {
         display: flex;
         flex-flow: column;
         max-width: 700px;
+        align-items: flex-start;
+    }
+
+    .news-text h2 {
+        font-size: 52px;
+    }
+
+    .news-text a {
+        font-size: 40px;
     }
 
 
     .ler-mais {
+        margin: 0 auto;
         cursor: pointer;
-        width: 250px;
-        height: 69px;
+        width: 460px;
+        height: 120px;
         background-color: #FFD952;
         color: #434343;
-        font-size: 24px;
+        font-size: 56px;
         font-weight: bolder;
         font-family: 'Lato';
         border: none;
