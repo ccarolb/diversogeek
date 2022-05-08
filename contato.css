@@ -24,7 +24,6 @@
     input,
     textarea {
         display: block;
-        font-weight: bold;
         font-size: 14px;
         padding: 10px;
         background-color: rgba(245, 220, 232, 0.622);
