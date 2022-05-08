@@ -158,7 +158,7 @@
         flex-flow: column wrap;
 
         /* determina o espaçamento entre o card e o box */
-        gap: 200px;
+        gap: 300px;
     }
 
     .reads-container h2 {
@@ -180,7 +180,7 @@
     .box {
         display: flex;
         flex-flow: column wrap;
-        gap: 200px;
+        gap: 300px;
     }
 
     .box img {
@@ -241,7 +241,9 @@
         font-size: 52px;
     }
 
-    .news-text a {
+    .news-text a,
+    .card a,
+    .box a {
         font-size: 40px;
     }
 
