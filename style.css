@@ -3,14 +3,13 @@ body {
     font-family: 'Oswald', 'Lato';
 
     /* seta margem automática da página, para que ela fique responsiva */
-    margin: auto;
+    margin: 0 auto;
 
     /* define que o body ocupe toda a largura disponível da página */
     width: 100%;
 }
 
-h1,
-caption {
+h1 {
     margin: 50px auto;
     font-size: 32px;
     color: #E77CA9;
@@ -18,9 +17,14 @@ caption {
 }
 
 h2,
+caption,
 thead {
     margin: 0;
     font-size: 24px;
+}
+
+h4 {
+    margin: 0;
 }
 
 p {
@@ -38,6 +42,10 @@ a {
 
 a:hover {
     color: #FFE600;
+}
+
+header {
+    margin: auto;
 }
 
 .container {
