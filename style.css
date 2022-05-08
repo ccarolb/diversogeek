@@ -217,9 +217,9 @@
         /* define o cabeçalho como um container de flexbox */
         display: flex;
 
-        flex-direction: row-reverse;
+        flex-direction: row;
         /* elementos img e ul distribuídos igualmente dentro do cabeçalho */
-        justify-content: space-evenly;
+        justify-content: space-around;
 
         /* aumenta em 20px o tamanho do espaço entre os elementos do menu e entre o menu e o logotipo*/
         gap: 20px;
@@ -232,10 +232,12 @@
         /* seta as dimensões do logotipo */
         width: 400px;
         height: auto;
+        margin-right: 100px;
     }
 
     .menu li {
         display: block;
+        margin-right: 50px;
     }
 
     .ul {
@@ -281,6 +283,8 @@
     .redes-sociais {
         display: flex;
         gap: 35px;
+        width: fit-content;
+        margin-right: 50px;
     }
 
     .redes-sociais img {

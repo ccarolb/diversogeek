@@ -104,12 +104,11 @@
 
     p,
     h3 {
-        margin: 30px auto;
         text-align: center;
     }
 
     h3 {
-        text-align: center;
+        margin: 0 40px 30px 40px;
     }
 
     .podcast-container {
@@ -120,11 +119,6 @@
         margin: 50px 0 15px 0;
         gap: 50px;
     }
-
-    .audio {
-        padding-right: 50px;
-    }
-
 
     .img-texto {
         display: flex;
@@ -161,12 +155,17 @@
 
     table td {
         border: 2px solid #E77CA9;
-        min-width: 30px;
-        min-height: 30px;
-        padding: 0 30px 30px 5px;
+        min-height: 80px;
+        padding: 0 80px 80px 5px;
+        font-size: 50px;
+    }
+
+    table th {
+        font-size: 60px;
     }
 
     .calendario {
+        width: fit-content;
         display: flex;
         align-items: center;
         flex-flow: column wrap;
@@ -186,5 +185,11 @@
 
     .calendario-title {
         margin-top: 120px;
+    }
+
+    .eventos {
+        text-align: center;
+        margin: 30px auto;
+        font-size: 50px;
     }
 }
