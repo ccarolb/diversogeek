@@ -176,13 +176,17 @@
         font-size: 80px;
     }
 
+    h3 {
+        font-size: 55px;
+    }
+
     h4 {
         margin: 0;
     }
 
     p {
-        margin: 0;
-        font-size: 40px;
+        margin: 0 auto;
+        font-size: 50px;
         font-family: 'Lato';
         max-width: 800px;
     }
