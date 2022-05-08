@@ -25,7 +25,7 @@ $(document).ready(function () {
     })
 
     // Evento que ao clicar no botão enviar valida se o campo de nome e o campo de mensagem estão vazios ou estão preenchidos apenas por espaço, e se uma das condições forem verdadeiras, o navegador exibe uma mensagem pedindo para o usuário preencher de forma correta.
-    $("#enviar").click(function () {
+    $(".enviar button").click(function () {
 
         function apenasEspaco(string) {
             let str = string.val()
