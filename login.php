@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,17 +15,16 @@
         rel="stylesheet">
 
     <!-- linka o documento css ao projeto -->
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
 
     <!-- linka o jquery ao projeto -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- linka o script.js ao projeto -->
-    <script src="script.js"></script>
+    <script src="rotinas/script.js"></script>
 </head>
 
 <body>
-
     <!-- Header da página com logo e menu -->
     <header class="container">
 
@@ -35,8 +37,8 @@
                 <li><a id="home" href="index.html">home</a></li>
                 <li><a id="contato" href="contato.html">contato</a></li>
                 <li><a id="sobre">sobre</a></li>
-                <li><a href="#">cinema</a></li>
-                <li><a href="#">animes</a></li>
+                <li><a href="login.php">login</a></li>
+                <li><a href="cadastroArtigo.php">cadastrar artigo</a></li>
                 <li><a href="#">séries</a></li>
             </ul>
         </nav>
@@ -45,25 +47,11 @@
     <main>
         <h1>Login</h1>
         <div class="form">
-            <form>
-                <div class="form-foto">
-                    <div class="form-dados">
-                        <div>
-                            <label for="nome">Usuário</label>
-                            <input id="nome" required type="text" name="nome">
-                        </div>
 
-                        <div>
-                            <label for="senha">Senha</label>
-                            <input id="senha" required type="password" name="senha">
-                            <a>Cadastrar</a>
-                        </div>
-                    </div>
-                    <div class="enviar">
-                    <button type="submit">Enviar</button>
-                    </div>
-                </div>
-            </form>
+        <?php
+            include_once('rotinas/usuario/login.php');
+
+        ?>
         </div>
     </main>
 
