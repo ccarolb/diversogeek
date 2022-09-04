@@ -49,7 +49,7 @@ session_start();
         <div class="form">
 
         <?php
-            include('home.php');
+            include_once('home.php');
 
         ?>
         </div>

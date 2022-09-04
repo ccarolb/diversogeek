@@ -1,28 +1,28 @@
 <?php
 
-    include('formlogin.php');
-    include ('verificaLogin.php');
+    include_once('formlogin.php');
+    include_once('verificaLogin.php');
 
     if( !(isset($_SESSION['login'])) ) {
 
-        $login = $_POST['login'];
-        $senha = $_POST['senha'];
-
-        $usuario = verificaLogin($login, $senha);
-
         if(isset($_POST['envio'])) {
+            $login = $_POST['login'];
+            $senha = $_POST['senha'];
+    
+            $usuario = verificaLogin($login, $senha);
 
             if(count($usuario) > 0) {
                 $_SESSION['login'] = $login;
                 header('Location: home2.php');
             } else {
                 echo 'Dados inválidos';
+                session_destroy();
             }
-            include('login.php');
+            include_once('login.php');
         }
 
     } else {
-        include('home2.php');
+        include_once('home2.php');
     }
 
 ?>

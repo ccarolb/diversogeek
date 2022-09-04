@@ -1,7 +1,7 @@
 <?php
-    include('formcadastro.php');
+    include_once('formcadastro.php');
 
-    include('conexaoBd.php');
+    include_once('conexaoBd.php');
 
     if(isset($_POST['nome'])) {
         // prepara 

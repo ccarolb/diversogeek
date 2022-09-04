@@ -49,7 +49,7 @@ session_start();
         <div class="form">
 
         <?php
-            include('login2.php');
+            include_once('login2.php');
 
         ?>
         </div>
