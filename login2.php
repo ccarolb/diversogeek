@@ -1,17 +1,18 @@
 <?php
 
     include('formlogin.php');
+    include ('verificaLogin.php');
 
     if( !(isset($_SESSION['login'])) ) {
 
+        $login = $_POST['login'];
+        $senha = $_POST['senha'];
+
+        $usuario = verificaLogin($login, $senha);
+
         if(isset($_POST['envio'])) {
-            $login = 'aaa';
-            $senha = '123';
 
-            $loginForm = $_POST['login'];
-            $senhaForm = $_POST['senha'];
-
-            if($login == $loginForm && $senha == $senhaForm) {
+            if(count($usuario) > 0) {
                 $_SESSION['login'] = $login;
                 header('Location: home2.php');
             } else {
