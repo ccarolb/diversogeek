@@ -46,7 +46,7 @@
         
         <h1>Login</h1>
         <div class="form">
-       <?php include('cadastro2.php'); ?>
+       <?php include('cadastroArtigo2.php'); ?>
         </div>
        
     </main>
