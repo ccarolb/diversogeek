@@ -1,6 +1,6 @@
 <?php
 
-    include_once('formlogin.php');
+    include_once('././templates/formlogin.php');
     include_once('verificaLogin.php');
 
     if( !(isset($_SESSION['login'])) ) {
@@ -13,7 +13,7 @@
 
             if(count($usuario) > 0) {
                 $_SESSION['login'] = $login;
-                header('Location: home2.php');
+                header('Location: ././home.php');
             } else {
                 echo 'Dados inválidos';
                 session_destroy();
@@ -22,7 +22,7 @@
         }
 
     } else {
-        include_once('home2.php');
+        include_once('././home.php');
     }
 
 ?>

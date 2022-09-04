@@ -12,13 +12,13 @@
         rel="stylesheet">
 
     <!-- linka o documento css ao projeto -->
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
 
     <!-- linka o jquery ao projeto -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- linka o script.js ao projeto -->
-    <script src="script.js"></script>
+    <script src="rotinas/script.js"></script>
 </head>
 
 <body>
@@ -46,7 +46,7 @@
         
         <h1>Login</h1>
         <div class="form">
-       <?php include_once('cadastro2.php'); ?>
+       <?php include_once('rotinas/usuario/cadastro2.php'); ?>
         </div>
        
     </main>
