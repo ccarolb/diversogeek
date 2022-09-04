@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,7 +25,6 @@
 </head>
 
 <body>
-
     <!-- Header da página com logo e menu -->
     <header class="container">
 
@@ -45,25 +47,11 @@
     <main>
         <h1>Login</h1>
         <div class="form">
-            <form>
-                <div class="form-foto">
-                    <div class="form-dados">
-                        <div>
-                            <label for="nome">Usuário</label>
-                            <input id="nome" required type="text" name="nome">
-                        </div>
 
-                        <div>
-                            <label for="senha">Senha</label>
-                            <input id="senha" required type="password" name="senha">
-                            <a href="cadastro.html">Cadastrar</a>
-                        </div>
-                    </div>
-                    <div class="enviar">
-                        <button type="submit">Enviar</button>
-                    </div>
-                </div>
-            </form>
+        <?php
+            include('login2.php');
+
+        ?>
         </div>
     </main>
 

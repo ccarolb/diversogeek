@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,7 +25,6 @@
 </head>
 
 <body>
-
     <!-- Header da página com logo e menu -->
     <header class="container">
 
@@ -43,35 +45,13 @@
     </header>
 
     <main>
-        <h1>Login</h1>
+        <h1>Home</h1>
         <div class="form">
-            <form>
-                <div class="form-foto">
-                    <div class="form-dados">
-                        <div>
-                            <label for="nome">Usuário</label>
-                            <input id="nome" required type="text" name="nome">
-                        </div>
 
+        <?php
+            include('home.php');
 
-                        <div>
-                            <label for="email">Email</label>
-                            <input id="email" required type="email" name="email">
-                        </div>
-
-                        <div>
-                            <label for="senha">Senha</label>
-                            <input id="senha" required type="password" name="senha">
-                        </div>
-                    </div>
-                    <div class="enviar">
-                        <button type="submit">Enviar</button>
-                    </div>
-                    <div class="enviar">
-                        <a href="login.html">Voltar</button>
-                    </div>
-                </div>
-            </form>
+        ?>
         </div>
     </main>
 
