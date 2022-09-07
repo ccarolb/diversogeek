@@ -1,8 +1,8 @@
 <?php
 
-    include_once('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
-
 function verificaLoginUsuario($usuario, $senha) {
+    include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+
     $sql = $pdo->prepare("SELECT id_usuarios FROM usuarios where nome ='".$usuario."' and senha = '".$senha."'");
     $sql->execute();
     return $sql->fetchAll();
@@ -22,16 +22,16 @@ function logaUsuario() {
     
                 if(count($usuario) > 0) {
                     $_SESSION['login'] = $login;
-                    header('Location: ././view/home.php');
+                    header('Location: ..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'home.php');
                 } else {
                     echo 'Dados inválidos';
                     session_destroy();
                 }
-                include_once('login.php');
+                include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'login.php');
             }
     
         } else {
-            include_once('././view/home.php');
+            include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'home.php');
         }
 
     } catch(Exception $e) {
@@ -40,14 +40,25 @@ function logaUsuario() {
 }
 
 function cadastraUsuario() {
+    include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formcadastro.php');
 
     try {
         if (isset($_POST['nome'])) {
-            $sql = $pdo->prepare("insert into usuarios values(null,?,?,?)");
-            $sql->execute(array($_POST['nome'], $_POST['email'], $_POST['senha']));
-            echo 'inserido com sucesso';
+            $nome = $_POST['nome'];
+            $senha = $_POST['senha'];
+
+            $usuario = verificaLoginUsuario($nome, $senha);
+
+            if(count($usuario) <= 0) {
+                $sql = $pdo->prepare("insert into usuarios values(null,?,?,?)");
+                $sql->execute(array($_POST['nome'], $_POST['email'], $_POST['senha']));
+                echo 'Cadastro realizado.';
+            } else {
+                echo 'Esse usuário já existe.';
+            }
         }
+        
     } catch(Exception $e) {
         throw new Exception($e->getMessage());
     }
@@ -55,11 +66,17 @@ function cadastraUsuario() {
 }
 
 function logoutUsuario() {
-    if(isset($_GET['logout'])) {
-        unset($_SESSION['login']);
-        session_destroy();
-        header('Location: ././login.php');
+
+    try {
+        if(isset($_GET['logout'])) {
+            unset($_SESSION['login']);
+            session_destroy();
+            header('Location: ..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'login.php');
+        }
+    } catch(Exception $e) {
+        throw new Exception($e->getMessage());
     }
+
 }
 
 ?>

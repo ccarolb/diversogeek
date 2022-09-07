@@ -49,7 +49,7 @@ session_start();
         <div class="form">
 
         <?php
-            include_once ('../controller/usuario.php');
+            include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php');
             logaUsuario();
 
         ?>

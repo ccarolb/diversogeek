@@ -49,12 +49,13 @@ session_start();
         <div class="form">
 
         <?php
-echo '<h2>Olá ' . $_SESSION['login'] . '</h2>';
-echo '<a href="?logout">Logout</a>';
+            echo '<h2>Olá ' . $_SESSION['login'] . '</h2>';
+            echo '<a href="?logout">Logout</a>';
 
-include_once 'controller/usuario/home.php';
+            include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
+            logoutUsuario();
 
-?>
+        ?>
         </div>
     </main>
 
