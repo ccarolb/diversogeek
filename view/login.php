@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -15,13 +15,13 @@ session_start();
         rel="stylesheet">
 
     <!-- linka o documento css ao projeto -->
-    <link rel="stylesheet" href="web/style/style.css" type="text/css">
+    <link rel="stylesheet" href="../web/style/style.css" type="text/css">
 
     <!-- linka o jquery ao projeto -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- linka o script.js ao projeto -->
-    <script src="web/scripts/script.js"></script>
+    <script src="../web/scripts/script.js"></script>
 </head>
 
 <body>
@@ -29,13 +29,13 @@ session_start();
     <header class="container">
 
         <!-- Logo da página -->
-        <div class="item"><a href="view/index.html"><img src="web/assets/logo.png" alt="logo diversogeek" class="logo"></a></div>
+        <div class="item"><a href="index.html"><img src="../web/assets/logo.png" alt="logo diversogeek" class="logo"></a></div>
 
         <!-- Menu principal da página, dentro do header. -->
         <nav class="menu item">
             <ul class="container ul">
-                <li><a id="home" href="view/index.html">home</a></li>
-                <li><a id="contato" href="view/contato.html">contato</a></li>
+                <li><a id="home" href="index.html">home</a></li>
+                <li><a id="contato" href="contato.html">contato</a></li>
                 <li><a id="sobre">sobre</a></li>
                 <li><a href="login.php">login</a></li>
                 <li><a href="cadastroArtigo.php">cadastrar artigo</a></li>
@@ -49,7 +49,8 @@ session_start();
         <div class="form">
 
         <?php
-            include_once('controller/usuario/login.php');
+            include_once ('../controller/usuario.php');
+            logaUsuario();
 
         ?>
         </div>
@@ -61,13 +62,13 @@ session_start();
     <footer class="container">
 
         <!-- Logo da página -->
-        <div class="item"><img src="web/assets/logo.png" alt="logo diversogeek" class="logo"></div>
+        <div class="item"><img src="../web/assets/logo.png" alt="logo diversogeek" class="logo"></div>
 
         <!-- Ícones das redes sociais -->
-        <div class="redes-sociais"><img src=" /web/assets/instagram.png" alt="">
-            <div><img src="/web/assets/facebook.png" alt=""></div>
-            <div><img src="/web/assets/youtube.png" alt=""></div>
-            <div><img src="/web/assets/twitter.png" alt=""></div>
+        <div class="redes-sociais"><img src=" /../web/assets/instagram.png" alt="">
+            <div><img src="/../web/assets/facebook.png" alt=""></div>
+            <div><img src="/../web/assets/youtube.png" alt=""></div>
+            <div><img src="/../web/assets/twitter.png" alt=""></div>
         </div>
     </footer>
 
