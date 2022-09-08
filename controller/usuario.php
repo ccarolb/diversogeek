@@ -1,13 +1,5 @@
 <?php
 
-function verificaLoginUsuario($usuario, $senha) {
-    include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
-
-    $sql = $pdo->prepare("SELECT id_usuarios FROM usuarios where nome ='".$usuario."' and senha = '".$senha."'");
-    $sql->execute();
-    return $sql->fetchAll();
-}
-
 function logaUsuario() {
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formlogin.php');
 
@@ -18,7 +10,7 @@ function logaUsuario() {
                 $login = $_POST['login'];
                 $senha = $_POST['senha'];
         
-                $usuario = verificaLoginUsuario($login, $senha);
+                $usuario = UsuarioverificaLoginUsuario($login, $senha);
     
                 if(count($usuario) > 0) {
                     $_SESSION['login'] = $login;
@@ -40,25 +32,16 @@ function logaUsuario() {
 }
 
 function cadastraUsuario() {
-    include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+    include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formcadastro.php');
 
     try {
         if (isset($_POST['nome'])) {
             $nome = $_POST['nome'];
             $senha = $_POST['senha'];
-
-            $usuario = verificaLoginUsuario($nome, $senha);
-
-            if(count($usuario) <= 0) {
-                $sql = $pdo->prepare("insert into usuarios values(null,?,?,?)");
-                $sql->execute(array($_POST['nome'], $_POST['email'], $_POST['senha']));
-                echo 'Cadastro realizado.';
-            } else {
-                echo 'Esse usuário já existe.';
-            }
+            
+            Usuario.cadastraUsuario($_POST['nome'], $_POST['email'], $_POST['senha']);
         }
-        
     } catch(Exception $e) {
         throw new Exception($e->getMessage());
     }
