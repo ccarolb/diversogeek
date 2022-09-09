@@ -1,14 +1,11 @@
 <?php
-
-include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
-
 class Usuario {
     private $idUsuario;
     private $nome;
     private $email;
     private $senha;
 
-    function verificaLoginUsuario($usuario, $senha) {
+   public function verificaLoginUsuario($usuario, $senha) {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
     
         $sql = $pdo->prepare("SELECT id_usuarios FROM usuarios where nome ='".$usuario."' and senha = '".$senha."'");
@@ -16,20 +13,23 @@ class Usuario {
         return $sql->fetchAll();
     }
 
-    function cadastrarUsuario($nome, $email, $senha) {
+    public function cadastrarUsuario($nome, $email, $senha) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
 
-        $usuario = verificaLoginUsuario($nome, $senha);
+        $usuario = $this->verificaLoginUsuario($nome, $senha);
 
         if(count($usuario) <= 0) {
-            $sql = $pdo->prepare("insert into usuarios values(null,?,?,?)");
-            $sql->bindValue(':NmUsuario' , $this->nome, PDO::PARAM_STR);
+            $sql = $pdo->prepare('insert into usuarios(nome, email, senha) values(?, ?, MD5(?))');
             $sql->execute(array($nome, $email, $senha));
-        
+            echo 'Usuário cadastrado com sucesso.';
         } else {
             echo 'Esse usuário já existe.';
         }
     }
 
+    public function fazLoginUsuario($usuario, $senha) {
+
+    }
 }
 
 ?>

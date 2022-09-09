@@ -7,10 +7,13 @@ function logaUsuario() {
         if( !(isset($_SESSION['login'])) ) {
 
             if(isset($_POST['envio'])) {
+                include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
+                
                 $login = $_POST['login'];
                 $senha = $_POST['senha'];
         
-                $usuario = UsuarioverificaLoginUsuario($login, $senha);
+                $usuario = new Usuario();
+                $usuario = $usuario->verificaLoginUsuario($login, $senha);
     
                 if(count($usuario) > 0) {
                     $_SESSION['login'] = $login;
@@ -36,13 +39,17 @@ function cadastraUsuario() {
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formcadastro.php');
 
     try {
+        $usuario = new Usuario();
+
         if (isset($_POST['nome'])) {
             $nome = $_POST['nome'];
+            $email = $_POST['email'];
             $senha = $_POST['senha'];
             
-            Usuario.cadastraUsuario($_POST['nome'], $_POST['email'], $_POST['senha']);
+            $usuario->cadastrarUsuario($nome, $email, $senha);
         }
     } catch(Exception $e) {
+        echo 'ish, deu erro';
         throw new Exception($e->getMessage());
     }
     
