@@ -23,9 +23,7 @@ class Usuario {
 
         try {
 
-            $sql = $pdo->prepare("SELECT id_usuarios FROM usuarios where nome = :usuario and senha = MD5(:senha)");
-            $sql->bindValue(':usuario', $this->nome, PDO::PARAM_STR);
-            $sql->bindValue(':senha', $this->senha, PDO::PARAM_STR);
+            $sql = $pdo->prepare("SELECT id_usuarios FROM usuarios where nome ='".$usuario."' and senha = MD5('".$senha."')");
             $sql->execute();
             return $sql->fetchAll();
 
