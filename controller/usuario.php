@@ -39,17 +39,21 @@ function cadastraUsuario() {
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formcadastro.php');
 
     try {
-        $usuario = new Usuario();
 
         if (isset($_POST['nome'])) {
+            $usuario = new Usuario();
+
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];
+
+            $usuario->setNome($nome);
+            $usuario->setEmail($email);
+            $usuario->setSenha($senha);
             
-            $usuario->cadastrarUsuario($nome, $email, $senha);
+            $usuario->cadastrarUsuario();
         }
     } catch(Exception $e) {
-        echo 'ish, deu erro';
         throw new Exception($e->getMessage());
     }
     
