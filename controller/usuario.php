@@ -1,18 +1,18 @@
 <?php
 
 function logaUsuario() {
+    include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formlogin.php');
 
     try {
+        $usuario = new Usuario();
+
         if( !(isset($_SESSION['login'])) ) {
 
             if(isset($_POST['envio'])) {
-                include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
-                
                 $login = $_POST['login'];
                 $senha = $_POST['senha'];
         
-                $usuario = new Usuario();
                 $usuario = $usuario->verificaLoginUsuario($login, $senha);
     
                 if(count($usuario) > 0) {
