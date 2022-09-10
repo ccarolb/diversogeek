@@ -6,6 +6,26 @@ class Artigo {
     private $usuario;
     private $titulo;
     private $resumo;
+    
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+    }
+    
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
+    }
+    
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+    }
+    
+    public function setResumo($resumo)
+    {
+        $this->resumo = $resumo;
+    }
 
     public function verificaArtigo($titulo) {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
@@ -27,13 +47,10 @@ class Artigo {
 
         try {
             $artigo = $this->verificaArtigo($this->titulo);
-            $this->usuario = getUsuarioById();
 
             if(count($artigo) <= 0) {
 
-                $sql = $pdo->prepare("insert into tb_artigos(id_usuario, cd_imagem, nm_artigo, ds_artigo) values(:usuario, :imagem, :titulo, :resumo)");
-                $sql->bindValue(':usuario', $this->usuario, PDO::PARAM_INT);
-                $sql->bindValue(':imagem', $this->imagem, PDO::PARAM_INT);
+                $sql = $pdo->prepare("insert into tb_artigos(nm_artigo, ds_artigo) values(:titulo, :resumo)");
                 $sql->bindValue(':titulo', $this->titulo, PDO::PARAM_STR);
                 $sql->bindValue(':resumo', $this->resumo, PDO::PARAM_STR);
                 $sql->execute();
@@ -46,7 +63,6 @@ class Artigo {
         }
        
     }
-
 
 }
 

@@ -16,7 +16,8 @@ function logaUsuario() {
                 $usuario = $usuario->verificaLoginUsuario($login, $senha);
     
                 if(count($usuario) > 0) {
-                    $_SESSION['login'] = $login;
+                    // $_SESSION['login'] = $login;
+                    $usuario->setIdUsuario($_SESSION['login']['id_usuario']);
                     header('Location: ..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'home.php');
                 } else {
                     echo 'Dados inválidos';
@@ -50,29 +51,17 @@ function cadastraUsuario() {
             $usuario->setNome($nome);
             $usuario->setEmail($email);
             $usuario->setSenha($senha);
+            $usuario->setIdUsuario($usuario->getIdUsuario($nome));
             
             $usuario->cadastrarUsuario();
+
         }
     } catch(Exception $e) {
-        throw new Exception($e->getMessage());
+        echo 'Já existe um usuário cadastrado com este email.';
     }
     
 }
 
-function getUsuarioById() {
-    include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
-    try {
-
-        $usuario = new Usuario();
-
-        $sessao = $_SESSION['login'];
-
-        return $usuario->getIdUsuario($sessao);
-
-    } catch(Exception $e) {
-        throw new Exception($e->getMessage());
-    }
-}
 function logoutUsuario() {
 
     try {

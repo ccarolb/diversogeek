@@ -10,11 +10,11 @@
                             <label for="resumo">Resumo do artigo</label>
                             <input id="resumo" required type="text" name="resumo">
                         </div>
-
+<!-- 
                         <div>
                             <label for="img">Imagem</label>
                             <input id="img" required type="file" name="img">
-                        </div>
+                        </div> -->
 
                         <div>
                             <select name="tags">

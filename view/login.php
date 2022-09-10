@@ -50,7 +50,6 @@ session_start();
 
         <?php
             include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php');
-            include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
             logaUsuario();
 
         ?>

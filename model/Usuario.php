@@ -17,18 +17,15 @@ class Usuario {
     {
         $this->senha = $senha;
     }
-    public function getIdUsuario($usuario) {
-        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
-        try {
-            
-            $sql = $pdo->prepare("select id_usuario from tb_usuarios where nm_usuario = '".$usuario."'");
-            $sql->execute();
-            return $sql->fetchAll();
 
+    public function getIdUsuario() {
+        return $this->idUsuario;
+    }
 
-        } catch(Exception $e) {
-            throw new Exception($e->getMessage());
-        }
+    
+    public function setIdUsuario($usuario)
+    {
+        $this->idUsuario = $usuario;
     }
 
    public function verificaLoginUsuario($usuario, $senha) {
@@ -53,7 +50,7 @@ class Usuario {
             $usuario = $this->verificaLoginUsuario($this->nome, $this->senha);
 
             if(count($usuario) <= 0) {
-
+                
                 $sql = $pdo->prepare("insert into tb_usuarios(nm_usuario, ds_email, ds_senha) values(:nome, :email, MD5(:senha))");
                 $sql->bindValue(':nome', $this->nome, PDO::PARAM_STR);
                 $sql->bindValue(':email', $this->email, PDO::PARAM_STR);
@@ -68,6 +65,20 @@ class Usuario {
         }
        
     }
+    
+    public function acessaIdUsuario($usuario) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        try {
+            
+            $sql = "select id_usuario from tb_usuarios where nm_usuario = '".$usuario."'";
+            $result = $pdo->query($sql);
+            return $result;
+    
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
 }
 
 ?>
