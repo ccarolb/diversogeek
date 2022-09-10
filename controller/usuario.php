@@ -59,6 +59,20 @@ function cadastraUsuario() {
     
 }
 
+function getUsuarioById() {
+    include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
+    try {
+
+        $usuario = new Usuario();
+
+        $sessao = $_SESSION['login'];
+
+        return $usuario->getIdUsuario($sessao);
+
+    } catch(Exception $e) {
+        throw new Exception($e->getMessage());
+    }
+}
 function logoutUsuario() {
 
     try {
@@ -72,5 +86,6 @@ function logoutUsuario() {
     }
 
 }
+
 
 ?>

@@ -15,6 +15,12 @@
                             <label for="img">Imagem</label>
                             <input id="img" required type="file" name="img">
                         </div>
+
+                        <div>
+                            <select name="tags">
+                            <option value="valor1">Valor 1</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="enviar">
                         <input type="submit" name="envio" value="Enviar">
