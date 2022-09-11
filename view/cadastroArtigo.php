@@ -51,7 +51,6 @@ session_start();
         <div class="form">
        <?php           
         include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'artigo.php');
-        
         cadastraArtigo();
        ?>
         </div>

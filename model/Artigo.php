@@ -57,7 +57,7 @@ class Artigo {
                 $sql->execute();
                 echo 'Artigo postado com sucesso.';
             } else {
-                echo 'Não foi possível postar o artigo.';
+                echo 'Esse artigo já existe.';
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());

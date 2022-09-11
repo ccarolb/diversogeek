@@ -26,7 +26,7 @@
                         <input type="submit" name="envio" value="Enviar">
                     </div>
                     <div class="enviar">
-                        <a href="home2.php">Voltar</button>
+                        <a href="home.php">Voltar</button>
                     </div>
                 </div>
             </form>
