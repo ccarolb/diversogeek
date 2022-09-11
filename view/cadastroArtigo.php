@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -48,6 +51,7 @@
         <div class="form">
        <?php           
         include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'artigo.php');
+        
         cadastraArtigo();
        ?>
         </div>

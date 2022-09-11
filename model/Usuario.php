@@ -25,7 +25,7 @@ class Usuario {
     
     public function setIdUsuario($usuario)
     {
-        $this->idUsuario = $usuario;
+        $this->idUsuario = $this->acessaIdUsuario($usuario);
     }
 
    public function verificaLoginUsuario($usuario, $senha) {
@@ -69,10 +69,14 @@ class Usuario {
     public function acessaIdUsuario($usuario) {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
         try {
-            
-            $sql = "select id_usuario from tb_usuarios where nm_usuario = '".$usuario."'";
-            $result = $pdo->query($sql);
-            return $result;
+
+            $sql = $pdo->prepare("select id_usuario from tb_usuarios where nm_usuario = '".$usuario."'");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+
+            foreach($dados as $value) {
+                return $value['id_usuario'];
+            }
     
         } catch(Exception $e) {
             throw new Exception($e->getMessage());

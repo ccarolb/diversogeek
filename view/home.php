@@ -51,6 +51,7 @@ session_start();
         <?php
             echo '<h2>Olá ' . $_SESSION['login'] . '</h2>';
             echo '<a href="?logout">Logout</a>';
+            echo '<a href="?id">Seu id</a>';
 
             include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
             logoutUsuario();

@@ -6,11 +6,12 @@
         include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formCadastroArtigo.php');
     
         try {
-    
+
             if (isset($_POST['titulo'])) {
                 $artigo = new Artigo();
                 $usuario = new Usuario();
     
+                $usuario->setIdUsuario($_SESSION['login']);
                 $titulo = $_POST['titulo'];
                 $resumo = $_POST['resumo'];
     

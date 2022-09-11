@@ -50,7 +50,8 @@ class Artigo {
 
             if(count($artigo) <= 0) {
 
-                $sql = $pdo->prepare("insert into tb_artigos(nm_artigo, ds_artigo) values(:titulo, :resumo)");
+                $sql = $pdo->prepare("insert into tb_artigos(id_usuario, nm_artigo, ds_artigo) values(:usuario, :titulo, :resumo)");
+                $sql->bindValue(':usuario', $this->usuario, PDO::PARAM_STR);
                 $sql->bindValue(':titulo', $this->titulo, PDO::PARAM_STR);
                 $sql->bindValue(':resumo', $this->resumo, PDO::PARAM_STR);
                 $sql->execute();

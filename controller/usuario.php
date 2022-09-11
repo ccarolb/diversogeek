@@ -5,10 +5,10 @@ function logaUsuario() {
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formlogin.php');
 
     try {
-        $usuario = new Usuario();
+        
 
         if( !(isset($_SESSION['login'])) ) {
-
+            $usuario = new Usuario();
             if(isset($_POST['envio'])) {
                 $login = $_POST['login'];
                 $senha = $_POST['senha'];
@@ -16,8 +16,8 @@ function logaUsuario() {
                 $usuario = $usuario->verificaLoginUsuario($login, $senha);
     
                 if(count($usuario) > 0) {
-                    // $_SESSION['login'] = $login;
-                    $usuario->setIdUsuario($_SESSION['login']['id_usuario']);
+                    $_SESSION['login'] = $login;
+
                     header('Location: ..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'home.php');
                 } else {
                     echo 'Dados inválidos';
@@ -51,7 +51,6 @@ function cadastraUsuario() {
             $usuario->setNome($nome);
             $usuario->setEmail($email);
             $usuario->setSenha($senha);
-            $usuario->setIdUsuario($usuario->getIdUsuario($nome));
             
             $usuario->cadastrarUsuario();
 
@@ -75,6 +74,5 @@ function logoutUsuario() {
     }
 
 }
-
 
 ?>
