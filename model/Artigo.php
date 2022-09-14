@@ -66,13 +66,13 @@ class Artigo {
        
     }
 
-    public function excluirArtigo($id) {
+    public function excluirArtigo($idArtigo) {
         include('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
         
         try {
-                $sql = $pdo->prepare("delete from tb_artigos where id_artigo =".$id);
+                $sql = $pdo->prepare("delete from tb_artigos where id_artigo =".$idArtigo);
                 $sql->execute();
-
+                echo 'Artigo excluído com sucesso.';
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -92,6 +92,26 @@ class Artigo {
             throw new Exception($e->getMessage());
         }
         
+    }
+
+    public function editarArtigo($id) {
+        include('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        
+        try {
+            $artigo = $this->verificaArtigo($this->titulo);
+
+            if(count($artigo) <= 0) {
+                $sql = $pdo->prepare("update tb_artigos set nm_artigo = '".$titulo."', ds_artigo = '".$resumo."' where id_artigo =".$idArtigo);
+                $sql->execute();
+                echo 'Artigo alterado com sucesso.';
+            } else {
+                echo 'Esse artigo já existe.';
+            }
+
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
     }
 }
 

@@ -45,7 +45,6 @@
         include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
     
         try {
-            listarArtigos();
 
             $artigo = new Artigo();
 
@@ -54,8 +53,6 @@
                 $id = (int) $_GET['excluir'];
 
                 $artigo->excluirArtigo($id);
-
-                include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'tabelaArtigos.php');
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
