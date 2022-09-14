@@ -32,7 +32,7 @@ class Artigo {
 
         try {
 
-            $sql = $pdo->prepare("SELECT id_artigo FROM tb_artigos where nm_artigo ='".$titulo."'");
+            $sql = $pdo->prepare("select id_artigo from tb_artigos where nm_artigo ='".$titulo."'");
             $sql->execute();
             return $sql->fetchAll();
 
@@ -63,6 +63,19 @@ class Artigo {
             throw new Exception($e->getMessage());
         }
        
+    }
+
+    public function excluirArtigo($id) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+
+        try {
+                $sql = $pdo->prepare("delete from tb_artigos where id_artigo ='".$id);
+                $sql->execute();
+
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
     }
 
 }
