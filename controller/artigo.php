@@ -26,23 +26,41 @@
         }
         
     }
-
-    function excluiArtigo() {
-        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
-        include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'tabelaArtigos.php');
+    
+    function listarArtigos() {
+        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
+        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'tabelaArtigos.php');
     
         try {
 
+            $artigo = new Artigo();
+            return $artigo->listarArtigos();
+
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    function excluiArtigo() {
+        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
+    
+        try {
+            listarArtigos();
+
+            $artigo = new Artigo();
+
             if (isset($_GET['excluir'])) {
-                $artigo = new Artigo();
                 
                 $id = (int) $_GET['excluir'];
 
                 $artigo->excluirArtigo($id);
+
+                include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'tabelaArtigos.php');
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
+
 
 ?>
