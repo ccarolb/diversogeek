@@ -17,10 +17,17 @@
                         </div> -->
 
                         <div>
-                            <select multiple name="tags[]">
-                            <option value="valor1">Valor 1</option>
-                            </select>
+                            <?php
+                                include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'tag.php');
+                                $tag = listarTags();
+                                echo '<select multiple name="tags[]">';
+                                foreach($tag as $value) {
+                                    echo '<option value="nm_tag">'.$value['nm_tag'].'</option>';
+                                }
+                                echo '</select>';
+                            ?>
                         </div>
+
                     </div>
                     <div class="enviar">
                         <input type="submit" name="envio" value="Enviar">
