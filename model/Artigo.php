@@ -27,6 +27,32 @@ class Artigo {
         $this->resumo = $resumo;
     }
 
+    public function getIdArtigo() {
+        return $this->idArtigo;
+    }
+
+    public function setIdArtigo($artigo)
+    {
+        $this->idArtigo = $this->acessaIdArtigo($artigo);
+    }
+
+    public function acessaIdArtigo($artigo) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        try {
+
+            $sql = $pdo->prepare("select id_artigo from tb_artigos where nm_artigo = '".$artigo."'");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+
+            foreach($dados as $value) {
+                return $value['id_artigo'];
+            }
+    
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     public function verificaArtigo($titulo) {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
 
@@ -45,9 +71,11 @@ class Artigo {
     public function cadastrarArtigo() {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
         include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php');
+        include_once('ArtigoTag.php');
 
         try {
             $artigo = $this->verificaArtigo($this->titulo);
+            $artigoTag = new ArtigoTag();
 
             if(count($artigo) <= 0) {
 
@@ -57,6 +85,14 @@ class Artigo {
                 $sql->bindValue(':resumo', $this->resumo, PDO::PARAM_STR);
                 $sql->execute();
                 echo 'Artigo postado com sucesso.';
+
+                foreach ($_POST['subject'] as $subject) {
+				    print "You selected $subject<br/>"; 
+		        } 
+                $sql = $pdo->prepare("insert into tb_artigo_tag(id_artigo, id_tag) values(:artigo, :tag)");
+                $sql->bindValue(':artigo', $this->idArtigo, PDO::PARAM_INT);
+                $sql->bindValue(':titulo', $artigoTag->idTag, PDO::PARAM_INT);
+                $sql->execute();
             } else {
                 echo 'Esse artigo já existe.';
             }
@@ -100,7 +136,7 @@ class Artigo {
         try {
             $artigo = $this->verificaArtigo($this->titulo);
 
-            if(count($artigo) <= 0) {
+            if(count($artigo) > 0) {
                 $sql = $pdo->prepare("update tb_artigos set nm_artigo = '".$titulo."', ds_artigo = '".$resumo."' where id_artigo =".$idArtigo);
                 $sql->execute();
                 echo 'Artigo alterado com sucesso.';

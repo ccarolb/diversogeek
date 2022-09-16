@@ -17,7 +17,7 @@
                         </div> -->
 
                         <div>
-                            <select multiple name="tags[]">
+                            <select multiple name="tags">
                             <option value="valor1">Valor 1</option>
                             </select>
                         </div>
