@@ -3,13 +3,35 @@ class Tag {
     private $idTag;
     private $nome;
 
-    public function setIdTag($idTag)
-    {
-        $this->idTag = $idTag;
+    public function getIdTag() {
+        return $this->idTag;
     }
+
+    public function setIdTag($tag)
+    {
+        $this->idTag = $this->acessaIdTag($tag);
+    }
+
     public function setNome($nome)
     {
         $this->nome = $nome;
+    }
+
+    public function acessaIdTag($tag) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        try {
+
+            $sql = $pdo->prepare("select id_tag from tb_tags where nm_tag = '".$tag."'");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+
+            foreach($dados as $value) {
+                return $value['id_tag'];
+            }
+    
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
     }
 
     public function verificaTag($nome) {

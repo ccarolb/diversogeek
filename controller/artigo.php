@@ -3,6 +3,7 @@
     function cadastraArtigo() {
         include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
         include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'ArtigoTag.php');
+        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Tag.php');
         include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
         include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formCadastroArtigo.php');
     
@@ -10,7 +11,8 @@
 
             if (isset($_POST['titulo'])) {
                 $artigo = new Artigo();
-                $tags = new ArtigoTag();
+                $artigoTag = new ArtigoTag();
+                $tags = new Tag();
                 $usuario = new Usuario();
     
                 $usuario->setIdUsuario($_SESSION['login']);
@@ -20,12 +22,15 @@
     
                 $artigo->setTitulo($titulo);
                 $artigo->setUsuario($usuario->getIdUsuario());
-                $tags->setIdTag($tag);
                 $artigo->setResumo($resumo);
                 
                 $artigo->cadastrarArtigo();
 
                 $artigo->setIdArtigo($titulo);
+                $artigoTag->setIdArtigo($artigo->getIdArtigo());
+                foreach($tag as $value) {
+                    $artigoTag->cadastraIds($tag, $artigoTag->getIdArtigo());
+                }
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());

@@ -20,7 +20,7 @@
                             <?php
                                 include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'tag.php');
                                 $tag = listarTags();
-                                echo '<select multiple name="tags[]">';
+                                echo '<select multiple name="tags">';
                                 foreach($tag as $value) {
                                     echo '<option value="nm_tag">'.$value['nm_tag'].'</option>';
                                 }
