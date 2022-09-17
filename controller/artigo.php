@@ -18,7 +18,6 @@
                 $usuario->setIdUsuario($_SESSION['login']);
                 $titulo = $_POST['titulo'];
                 $resumo = $_POST['resumo'];
-                $tag = $_POST['tags'];
     
                 $artigo->setTitulo($titulo);
                 $artigo->setUsuario($usuario->getIdUsuario());
@@ -28,7 +27,7 @@
 
                 $artigo->setIdArtigo($titulo);
                 $artigoTag->setIdArtigo($artigo->getIdArtigo());
-                foreach($tag as $value) {
+                foreach($_POST['tags'] as $tag) {
                     $artigoTag->cadastraIds($tag, $artigoTag->getIdArtigo());
                 }
             }

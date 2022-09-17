@@ -16,16 +16,15 @@
                             <input id="img" required type="file" name="img">
                         </div> -->
 
-                        <div>
+                        <div><select name="tags[]" multiple>
                             <?php
                                 include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'tag.php');
+
                                 $tag = listarTags();
-                                echo '<select multiple name="tags">';
                                 foreach($tag as $value) {
-                                    echo '<option value="nm_tag">'.$value['nm_tag'].'</option>';
+                                    echo '<option name="tags[]" value="'.$value['nm_tag'].'">'.$value['nm_tag'].'</option>';
                                 }
-                                echo '</select>';
-                            ?>
+                            ?></select>
                         </div>
 
                     </div>

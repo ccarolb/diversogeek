@@ -25,11 +25,15 @@ class ArtigoTag {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
 
         try {
+            // if(is_array($idTag)) {
 
-            foreach($idTag as $value) {
+            //     echo $idTag;
+            // }
+
+            foreach((array) $idTag as $value) {
                 $sql = $pdo->prepare("insert into tb_artigo_tag(id_artigo, id_tag) values(:idArtigo, :idTag)");
                 $sql->bindValue(':idArtigo', $this->idArtigo, PDO::PARAM_INT);
-                $sql->bindValue(':idTag', $this->idTag, PDO::PARAM_INT);
+                $sql->bindValue(':idTag', $value, PDO::PARAM_STR);
                 $sql->execute();
             }
                 
