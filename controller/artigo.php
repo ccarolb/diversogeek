@@ -83,23 +83,26 @@
     }
 
     function editaArtigo() {
-        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
-        include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formEdicaoArtigo.php');
+        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
     
         try {
 
-            if (isset($_POST['titulo'])) {
-                $artigo = new Artigo();
+            if (isset($_GET['editar'])) {
+                header('Location: formEdicaoArtigo.php');
+
+                if(isset($_POST['titulo'])) {
+                    $artigo = new Artigo();
     
-                $titulo = $_POST['titulo'];
-                $resumo = $_POST['resumo'];
-                $tags = $_POST['tags'];
-    
-                $artigo->setTitulo($titulo);
-                $artigo->setUsuario($usuario->getIdUsuario());
-                $artigo->setResumo($resumo);
-                
-                $artigo->editarArtigo();
+                    $titulo = $_POST['titulo'];
+                    $resumo = $_POST['resumo'];
+                    $tags = $_POST['tags'];
+        
+                    $idArtigo = $_GET['editar'];
+                    $artigo->setTitulo($titulo);
+                    $artigo->setResumo($resumo);
+                    
+                    $artigo->editarArtigo($idArtigo);
+                }
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());

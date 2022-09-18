@@ -120,19 +120,15 @@ class Artigo {
         
     }
 
-    public function editarArtigo($id) {
-        include('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+    public function editarArtigo($idArtigo) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
         
         try {
-            $artigo = $this->verificaArtigo($this->titulo);
-
-            if(count($artigo) > 0) {
-                $sql = $pdo->prepare("update tb_artigos set nm_artigo = '".$titulo."', ds_artigo = '".$resumo."' where id_artigo =".$idArtigo);
+                $sql = $pdo->prepare("update tb_artigos set nm_artigo = :titulo, ds_artigo = :resumo where id_artigo =".$idArtigo);
+                $sql->bindValue(':titulo', $this->titulo, PDO::PARAM_STR);
+                $sql->bindValue(':resumo', $this->resumo, PDO::PARAM_STR);
                 $sql->execute();
                 echo 'Artigo alterado com sucesso.';
-            } else {
-                echo 'Esse artigo já existe.';
-            }
 
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
