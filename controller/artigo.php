@@ -2,8 +2,6 @@
     
     function cadastraArtigo() {
         include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
-        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'ArtigoTag.php');
-        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Tag.php');
         include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
         include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formCadastroArtigo.php');
     
@@ -11,8 +9,6 @@
 
             if (isset($_POST['titulo'])) {
                 $artigo = new Artigo();
-                $artigoTag = new ArtigoTag();
-                $tags = new Tag();
                 $usuario = new Usuario();
     
                 $usuario->setIdUsuario($_SESSION['login']);
@@ -26,17 +22,32 @@
                 $artigo->cadastrarArtigo();
 
                 $artigo->setIdArtigo($titulo);
-                $artigoTag->setIdArtigo($artigo->getIdArtigo());
-                
+
+                relacionaTagAoArtigo($artigo->getIdArtigo());
+            }
+        } catch(Exception $e) {
+            echo 'Esse artigo já existe.';
+        }
+        
+    }
+
+    function relacionaTagAoArtigo($idArtigo) {
+        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'ArtigoTag.php');
+        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Tag.php');
+
+        try {
+            $artigoTag = new ArtigoTag();
+            $tags = new Tag();
+
+                $artigoTag->setIdArtigo($idArtigo);
+
                 foreach($_POST['tags'] as $tag) {
                     $idTag = $tags->acessaIdTag($tag);
                     $artigoTag->cadastraIds($idTag, $artigoTag->getIdArtigo());
                 }
-            }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
         }
-        
     }
     
     function listarArtigos() {

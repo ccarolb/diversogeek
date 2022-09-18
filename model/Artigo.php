@@ -85,8 +85,6 @@ class Artigo {
                 $sql->bindValue(':resumo', $this->resumo, PDO::PARAM_STR);
                 $sql->execute();
                 echo 'Artigo postado com sucesso.';
-            } else {
-                echo 'Esse artigo já existe.';
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
