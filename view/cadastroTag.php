@@ -25,6 +25,7 @@ session_start();
 </head>
 
 <body>
+
     <!-- Header da página com logo e menu -->
     <header class="container">
 
@@ -37,7 +38,7 @@ session_start();
                 <li><a id="home" href="index.html">home</a></li>
                 <li><a id="contato" href="contato.html">contato</a></li>
                 <li><a id="sobre">sobre</a></li>
-                <li><a href="#">cinema</a></li>
+                <li><a href="login.php">login</a></li>
                 <li><a href="#">animes</a></li>
                 <li><a href="#">séries</a></li>
             </ul>
@@ -45,17 +46,15 @@ session_start();
     </header>
 
     <main>
-        <h1>Home</h1>
 
-        <?php
-            echo '<h2>Olá ' . $_SESSION['login'] . '</h2>';
-            echo '<a href="?logout">Logout</a>';
+        <h1>Login</h1>
+        <div class="form">
+       <?php           
+        include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'tag.php');
+        cadastraTag();
+       ?>
+        </div>
 
-            include_once 'templates'.DIRECTORY_SEPARATOR.'menuUsuarioLogado.php';
-            include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
-            logoutUsuario();
-
-        ?>
     </main>
 
 

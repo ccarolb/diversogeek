@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -46,7 +49,10 @@
 
         <h1>Login</h1>
         <div class="form">
-       <?php include_once 'cadastroArtigo2.php';?>
+       <?php           
+        include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'artigo.php');
+        cadastraArtigo();
+       ?>
         </div>
 
     </main>

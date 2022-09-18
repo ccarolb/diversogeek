@@ -5,10 +5,10 @@ function logaUsuario() {
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formlogin.php');
 
     try {
-        $usuario = new Usuario();
+        
 
         if( !(isset($_SESSION['login'])) ) {
-
+            $usuario = new Usuario();
             if(isset($_POST['envio'])) {
                 $login = $_POST['login'];
                 $senha = $_POST['senha'];
@@ -17,6 +17,7 @@ function logaUsuario() {
     
                 if(count($usuario) > 0) {
                     $_SESSION['login'] = $login;
+
                     header('Location: ..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'home.php');
                 } else {
                     echo 'Dados inválidos';
@@ -39,18 +40,23 @@ function cadastraUsuario() {
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formcadastro.php');
 
     try {
-        $usuario = new Usuario();
 
         if (isset($_POST['nome'])) {
+            $usuario = new Usuario();
+
             $nome = $_POST['nome'];
             $email = $_POST['email'];
             $senha = $_POST['senha'];
+
+            $usuario->setNome($nome);
+            $usuario->setEmail($email);
+            $usuario->setSenha($senha);
             
-            $usuario->cadastrarUsuario($nome, $email, $senha);
+            $usuario->cadastrarUsuario();
+
         }
     } catch(Exception $e) {
-        echo 'ish, deu erro';
-        throw new Exception($e->getMessage());
+        echo 'Já existe um usuário cadastrado com este email.';
     }
     
 }
