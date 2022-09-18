@@ -1,15 +1,23 @@
+
 <?php
-    include_once ('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'artigo.php');
+    include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'artigo.php');
+    excluiArtigo();
+    retornaIdArtigo();
 
     $artigo = listarArtigos();
-    excluiArtigo();
-    editaArtigo();
+    
 
 
     foreach($artigo as $value) {
-        echo '<a href="?excluir='.$value['id_artigo'].'">X</a>|<a href="?editar='.$value['id_artigo'].'">Editar</a>';
-        echo '<br>';
-        echo '<br>';
+        // echo '<br>';
+        echo '<div>';
+        echo '<a class="artigo" href="?excluir='.$value['id_artigo'].'">( X )</a> - <a class="artigo editar" href="?editar='.$value['id_artigo'].'">Editar</a> | id: '.$value['id_artigo'].' | Título: '.$value['nm_artigo'].'';
+        // echo '<br>';
+        echo '</div>';
+        // echo '<br>';
+       
     }
 
+
 ?>
+</div>

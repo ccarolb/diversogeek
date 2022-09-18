@@ -49,10 +49,9 @@ session_start();
 
         <h1>Login</h1>
         <div class="form">
-       <?php                   
-        include_once('templates'.DIRECTORY_SEPARATOR.'formEdicaoArtigo.php');
-        // editaArtigo();
-    ?>
+       <?php           
+        include_once ('templates'.DIRECTORY_SEPARATOR.'tabelaArtigos.php');
+        ?>
         </div>
 
     </main>

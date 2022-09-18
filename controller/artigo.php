@@ -51,8 +51,8 @@
     }
     
     function listarArtigos() {
-        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
-        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'tabelaArtigos.php');
+        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
+        include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'tabelaArtigos.php');
     
         try {
 
@@ -65,7 +65,7 @@
     }
 
     function excluiArtigo() {
-        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
+        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
     
         try {
 
@@ -74,7 +74,7 @@
             if (isset($_GET['excluir'])) {
                 
                 $id = (int) $_GET['excluir'];
-
+                
                 $artigo->excluirArtigo($id);
             }
         } catch(Exception $e) {
@@ -82,27 +82,16 @@
         }
     }
 
-    function editaArtigo() {
-        include_once('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
+    function retornaIdArtigo() {
     
         try {
 
             if (isset($_GET['editar'])) {
-                header('Location: formEdicaoArtigo.php');
-
-                if(isset($_POST['titulo'])) {
-                    $artigo = new Artigo();
-    
-                    $titulo = $_POST['titulo'];
-                    $resumo = $_POST['resumo'];
-                    $tags = $_POST['tags'];
+                $id = (int) $_GET['editar'];
+                echo '<h2>Editar artigo nº: '.$id.'</h2>';
+                editaArtigo($id);
+                // header('Location: edicaoArtigo.php');
         
-                    $idArtigo = $_GET['editar'];
-                    $artigo->setTitulo($titulo);
-                    $artigo->setResumo($resumo);
-                    
-                    $artigo->editarArtigo($idArtigo);
-                }
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
@@ -110,5 +99,37 @@
         
     }
 
+    function editaArtigo($id) {
+        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
+        include_once('templates'.DIRECTORY_SEPARATOR.'formEdicaoArtigo.php');
+        // $id = retornaIdArtigo();
+
+        // if (isset($_GET['editar'])) {
+        //     // header('Location: edicaoArtigo.php');
+
+        //     $id = (int) $_GET['editar'];
+        //     return $id;
+
+        // }
+        try {
+
+            if(isset($_POST['titulo'])) {
+                $artigo = new Artigo();
+    
+                $titulo = $_POST['titulo'];
+                $resumo = $_POST['resumo'];
+                // $tags = $_POST['tags'];
+                // echo $idArtigo;
+
+                $artigo->setTitulo($titulo);
+                $artigo->setResumo($resumo);
+                // echo $idArtigo;
+                $artigo->editarArtigo($id);
+            }
+           
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 
 ?>

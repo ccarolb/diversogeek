@@ -32,7 +32,7 @@
                         <input type="submit" name="envio" value="Enviar">
                     </div>
                     <div class="enviar">
-                        <a href="home.php">Voltar</button>
+                        <a href="tabelaArtigos.php">Voltar</button>
                     </div>
                 </div>
             </form>
