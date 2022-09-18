@@ -20,20 +20,15 @@ class ArtigoTag {
         $this->idTag = $idTag;
     }
 
-    // to-do: converter essa tag passada para o id da tag (atualmente vem o nome da tag)
     public function cadastraIds($idTag, $idArtigo) {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
 
         try {
-            // if(is_array($idTag)) {
-
-            //     echo $idTag;
-            // }
 
             foreach((array) $idTag as $value) {
                 $sql = $pdo->prepare("insert into tb_artigo_tag(id_artigo, id_tag) values(:idArtigo, :idTag)");
                 $sql->bindValue(':idArtigo', $this->idArtigo, PDO::PARAM_INT);
-                $sql->bindValue(':idTag', $value, PDO::PARAM_STR);
+                $sql->bindValue(':idTag', $value, PDO::PARAM_INT);
                 $sql->execute();
             }
                 

@@ -27,8 +27,10 @@
 
                 $artigo->setIdArtigo($titulo);
                 $artigoTag->setIdArtigo($artigo->getIdArtigo());
+                
                 foreach($_POST['tags'] as $tag) {
-                    $artigoTag->cadastraIds($tag, $artigoTag->getIdArtigo());
+                    $idTag = $tags->acessaIdTag($tag);
+                    $artigoTag->cadastraIds($idTag, $artigoTag->getIdArtigo());
                 }
             }
         } catch(Exception $e) {
