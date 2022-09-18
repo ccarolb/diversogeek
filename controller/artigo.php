@@ -7,12 +7,12 @@
     
         try {
 
-            if (isset($_POST['titulo'])) {
+            if (isset($_POST['cadastroTitulo'])) {
                 $artigo = new Artigo();
                 $usuario = new Usuario();
     
                 $usuario->setIdUsuario($_SESSION['login']);
-                $titulo = $_POST['titulo'];
+                $titulo = $_POST['cadastroTitulo'];
                 $resumo = $_POST['resumo'];
     
                 $artigo->setTitulo($titulo);
@@ -41,10 +41,13 @@
 
                 $artigoTag->setIdArtigo($idArtigo);
 
-                foreach($_POST['tags'] as $tag) {
-                    $idTag = $tags->acessaIdTag($tag);
-                    $artigoTag->cadastraIds($idTag, $artigoTag->getIdArtigo());
+                if(isset($_POST['cadastroTitulo'])) {
+                   foreach($_POST['tags'] as $tag) {
+                        $idTag = $tags->acessaIdTag($tag);
+                        $artigoTag->cadastraIds($idTag, $artigoTag->getIdArtigo());
+                    }
                 }
+                
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -89,7 +92,8 @@
             if (isset($_GET['editar'])) {
                 $id = (int) $_GET['editar'];
                 echo '<h2>Editar artigo nº: '.$id.'</h2>';
-                editaArtigo($id);        
+                editaArtigo($id);
+                echo '<br><br>';
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
@@ -100,12 +104,13 @@
     function editaArtigo($id) {
         include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
         include_once('templates'.DIRECTORY_SEPARATOR.'formEdicaoArtigo.php');
+        
         try {
 
-            if(isset($_POST['titulo'])) {
+            if(isset($_POST['edicaoTitulo'])) {
                 $artigo = new Artigo();
     
-                $titulo = $_POST['titulo'];
+                $titulo = $_POST['edicaoTitulo'];
                 $resumo = $_POST['resumo'];
                 $artigo->setTitulo($titulo);
                 $artigo->setResumo($resumo);

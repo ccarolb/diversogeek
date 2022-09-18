@@ -3,7 +3,7 @@
                     <div class="form-dados">
                         <div>
                             <label for="titulo">Título</label>
-                            <input id="titulo" required type="text" name="titulo">
+                            <input id="titulo" required type="text" name="edicaoTitulo">
                         </div>
 
                         <div>
@@ -16,23 +16,11 @@
                             <input id="img" required type="file" name="img">
                         </div> -->
 
-                        <div><select name="tags[]" multiple>
-                            <?php
-                                include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'tag.php');
-
-                                $tag = listarTags();
-                                foreach($tag as $value) {
-                                    echo '<option name="tags[]" value="'.$value['nm_tag'].'">'.$value['nm_tag'].'</option>';
-                                }
-                            ?></select>
-                        </div>
-
                     </div>
                     <div class="enviar">
                         <input type="submit" name="envio" value="Enviar">
                     </div>
                     <div class="enviar">
-                        <a href="tabelaArtigos.php">Voltar</button>
                     </div>
                 </div>
             </form>

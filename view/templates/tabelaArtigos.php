@@ -3,9 +3,8 @@
     include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'artigo.php');
     excluiArtigo();
     retornaIdArtigo();
-
     $artigo = listarArtigos();
-    echo '<br><br>';
+    
     
     foreach($artigo as $value) {
         echo '<div>';
@@ -14,5 +13,6 @@
         echo '<br>';
        
     }
+
+    echo '<a href="menuArtigos.php">Voltar</button>'
 ?>
-</div>

@@ -3,7 +3,7 @@
                     <div class="form-dados">
                         <div>
                             <label for="titulo">Título</label>
-                            <input id="titulo" required type="text" name="titulo">
+                            <input id="titulo" required type="text" name="cadastroTitulo">
                         </div>
 
                         <div>
