@@ -89,9 +89,7 @@
             if (isset($_GET['editar'])) {
                 $id = (int) $_GET['editar'];
                 echo '<h2>Editar artigo nº: '.$id.'</h2>';
-                editaArtigo($id);
-                // header('Location: edicaoArtigo.php');
-        
+                editaArtigo($id);        
             }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
@@ -102,15 +100,6 @@
     function editaArtigo($id) {
         include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Artigo.php');
         include_once('templates'.DIRECTORY_SEPARATOR.'formEdicaoArtigo.php');
-        // $id = retornaIdArtigo();
-
-        // if (isset($_GET['editar'])) {
-        //     // header('Location: edicaoArtigo.php');
-
-        //     $id = (int) $_GET['editar'];
-        //     return $id;
-
-        // }
         try {
 
             if(isset($_POST['titulo'])) {
@@ -118,12 +107,9 @@
     
                 $titulo = $_POST['titulo'];
                 $resumo = $_POST['resumo'];
-                // $tags = $_POST['tags'];
-                // echo $idArtigo;
-
                 $artigo->setTitulo($titulo);
                 $artigo->setResumo($resumo);
-                // echo $idArtigo;
+
                 $artigo->editarArtigo($id);
             }
            

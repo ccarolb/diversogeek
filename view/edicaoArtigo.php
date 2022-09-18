@@ -51,7 +51,6 @@ session_start();
         <div class="form">
        <?php                   
         include_once('templates'.DIRECTORY_SEPARATOR.'formEdicaoArtigo.php');
-        // editaArtigo();
     ?>
         </div>
 
