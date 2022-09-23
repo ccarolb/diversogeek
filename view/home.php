@@ -48,11 +48,12 @@ session_start();
         <h1>Home</h1>
 
         <?php
+            include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
+            verificaSessao();
             echo '<h2>Olá ' . $_SESSION['login'] . '</h2>';
             echo '<a href="?logout">Logout</a>';
 
             include_once 'templates'.DIRECTORY_SEPARATOR.'menuUsuarioLogado.php';
-            include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
             logoutUsuario();
 
         ?>

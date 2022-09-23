@@ -48,6 +48,7 @@
         <div class="form">
        <?php 
             include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
+            verificaSessao();
             constroiMenu();
         ?>
         </div>

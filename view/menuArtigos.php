@@ -50,6 +50,8 @@ session_start();
         <h1>Login</h1>
         <div class="form">
        <?php           
+       include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
+       verificaSessao();
         include_once ('templates'.DIRECTORY_SEPARATOR.'menuArtigos.php');
        ?>
         </div>
