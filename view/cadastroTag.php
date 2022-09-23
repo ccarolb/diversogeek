@@ -1,5 +1,9 @@
 <?php
+include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
 session_start();
+if(!isset($_SESSION['login'])) {
+    verificaSessao();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -51,8 +55,6 @@ session_start();
         <div class="form">
        <?php           
         include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'tag.php');
-        include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
-            verificaSessao();
         cadastraTag();
        ?>
         </div>

@@ -1,26 +1,28 @@
 <?php
 
 function verificaSessao() {
-    if (count($_POST) == 0) {
-        header('Location: ..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'login.php');
+    if(!headers_sent()) {
+        if (count($_POST) == 0) {
+            exit(header("Location: login.php"));
+        }
     }
 }
 
 function logaUsuario() {
     include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Usuario.php');
     include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'formlogin.php');
-
+    
     try {
-        
 
         if( !(isset($_SESSION['login'])) ) {
+
             $usuario = new Usuario();
             if(isset($_POST['envio'])) {
                 $login = $_POST['login'];
                 $senha = $_POST['senha'];
         
                 $usuario = $usuario->verificaLoginUsuario($login, $senha);
-    
+                session_start();
                 if(count($usuario) > 0) {
                     $_SESSION['login'] = $login;
 
