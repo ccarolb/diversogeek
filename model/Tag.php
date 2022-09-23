@@ -75,7 +75,7 @@ class Tag {
 
         try {
 
-            $sql = $pdo->prepare("select nm_tag from tb_tags");
+            $sql = $pdo->prepare("select * from tb_tags");
             $sql->execute();
             return $sql->fetchAll();
 
