@@ -34,5 +34,22 @@
         }
     }
 
+    function excluiTag() {
+        include_once('..'.DIRECTORY_SEPARATOR.'model'.DIRECTORY_SEPARATOR.'Tag.php');
+    
+        try {
+
+            $tag = new Tag();
+
+            if (isset($_GET['excluir'])) {
+                
+                $id = (int) $_GET['excluir'];
+                
+                $tag->excluirTag($id);
+            }
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 
 ?>

@@ -85,6 +85,19 @@ class Tag {
         
     }
 
+    public function excluirTag($idTag) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        
+        try {
+                $sql = $pdo->prepare("delete from tb_tags where id_tag =".$idTag);
+                $sql->execute();
+                echo 'Tag excluída com sucesso.';
+        } catch(Exception $e) {
+            echo 'Não é possível excluir uma tag que está sendo utilizada em um artigo.';
+        }
+
+    }
+
 }
 
 ?>

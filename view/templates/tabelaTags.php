@@ -1,7 +1,7 @@
 
 <?php
     include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'tag.php');
-
+    excluiTag();
     $tag = listarTags();
     foreach($tag as $value) {
         echo '<div>';
