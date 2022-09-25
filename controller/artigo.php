@@ -42,10 +42,15 @@
                 $artigoTag->setIdArtigo($idArtigo);
 
                 if(isset($_POST['cadastroTitulo'])) {
-                   foreach($_POST['tags'] as $tag) {
-                        $idTag = $tags->acessaIdTag($tag);
-                        $artigoTag->cadastraIds($idTag, $artigoTag->getIdArtigo());
+                    if(isset($_POST['tags'])) {
+                        foreach($_POST['tags'] as $tag) {
+                            $idTag = $tags->acessaIdTag($tag);
+                            $artigoTag->cadastraIds($idTag, $artigoTag->getIdArtigo());
+                        }   
+                    } else {
+                        echo 'Escolha uma tag antes de prosseguir.';
                     }
+                   
                 }
                 
         } catch(Exception $e) {
