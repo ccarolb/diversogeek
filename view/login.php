@@ -33,8 +33,9 @@
             <ul class="container ul">
                 <li><a id="home" href="index.html">home</a></li>
                 <li><a id="contato" href="contato.html">contato</a></li>
-                <li><a id="sobre">sobre</a></li>
-                <li><a href="login.php">login</a></li>
+                <li><a id="sobre" href="sobre.html">sobre</a></li>                
+                <li><a href="#">cinema</a></li>
+                <li><a href="#">animes</a></li>
                 <li><a href="#">séries</a></li>
             </ul>
         </nav>
@@ -61,10 +62,10 @@
         <div class="item"><img src="../web/assets/logo.png" alt="logo diversogeek" class="logo"></div>
 
         <!-- Ícones das redes sociais -->
-        <div class="redes-sociais"><img src=" /../web/assets/instagram.png" alt="">
-            <div><img src="/../web/assets/facebook.png" alt=""></div>
-            <div><img src="/../web/assets/youtube.png" alt=""></div>
-            <div><img src="/../web/assets/twitter.png" alt=""></div>
+        <div class="redes-sociais"><img src=" ../web/assets/instagram.png" alt="">
+            <div><img src="../web/assets/facebook.png" alt=""></div>
+            <div><img src="../web/assets/youtube.png" alt=""></div>
+            <div><img src="../web/assets/twitter.png" alt=""></div>
         </div>
     </footer>
 
