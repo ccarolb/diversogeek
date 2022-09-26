@@ -85,6 +85,22 @@ class Tag {
         
     }
 
+    public function editarTag($idTag) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        
+        try {
+                $sql = $pdo->prepare("update tb_tags set nm_tag = :nm_tag where id_tag =".$idTag);
+                $sql->bindValue(':nm_tag', $this->nome, PDO::PARAM_STR);
+                $sql->execute();
+                
+                echo 'Tag alterada com sucesso.';
+
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+    }
+
     public function excluirTag($idTag) {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
         
