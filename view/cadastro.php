@@ -63,10 +63,10 @@
         <div class="item"><img src="../web/assets/logo.png" alt="logo diversogeek" class="logo"></div>
 
         <!-- Ícones das redes sociais -->
-        <div class="redes-sociais"><img src=" /../web/assets/instagram.png" alt="">
-            <div><img src="/../web/assets/facebook.png" alt=""></div>
-            <div><img src="/../web/assets/youtube.png" alt=""></div>
-            <div><img src="/../web/assets/twitter.png" alt=""></div>
+        <div class="redes-sociais"><img src=" ../web/assets/instagram.png" alt="">
+            <div><img src="../web/assets/facebook.png" alt=""></div>
+            <div><img src="../web/assets/youtube.png" alt=""></div>
+            <div><img src="../web/assets/twitter.png" alt=""></div>
         </div>
     </footer>
 
