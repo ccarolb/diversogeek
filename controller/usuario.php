@@ -28,8 +28,9 @@ function logaUsuario() {
 
                     header('Location: ..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'home.php');
                 } else {
-                    echo 'Dados inválidos';
                     session_destroy();
+                    echo 'Dados inválidos';
+                    
                 }
                 include_once('..'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'login.php');
             }
