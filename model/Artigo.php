@@ -71,11 +71,9 @@ class Artigo {
     public function cadastrarArtigo() {
         include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
         include_once ('..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php');
-        include_once('ArtigoTag.php');
 
         try {
             $artigo = $this->verificaArtigo($this->titulo);
-            $artigoTag = new ArtigoTag();
 
             if(count($artigo) <= 0) {
 
@@ -93,7 +91,7 @@ class Artigo {
     }
 
     public function excluirArtigo($idArtigo) {
-        include('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
         
         try {
                 $sql = $pdo->prepare("delete from tb_artigos where id_artigo =".$idArtigo);
@@ -106,7 +104,7 @@ class Artigo {
     }
 
     public function listarArtigos() {
-        include('..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
 
         try {
 
@@ -128,6 +126,7 @@ class Artigo {
                 $sql->bindValue(':titulo', $this->titulo, PDO::PARAM_STR);
                 $sql->bindValue(':resumo', $this->resumo, PDO::PARAM_STR);
                 $sql->execute();
+                
                 echo 'Artigo alterado com sucesso.';
 
         } catch(Exception $e) {

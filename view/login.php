@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -38,7 +35,6 @@ session_start();
                 <li><a id="contato" href="contato.html">contato</a></li>
                 <li><a id="sobre">sobre</a></li>
                 <li><a href="login.php">login</a></li>
-                <li><a href="cadastroArtigo.php">cadastrar artigo</a></li>
                 <li><a href="#">séries</a></li>
             </ul>
         </nav>

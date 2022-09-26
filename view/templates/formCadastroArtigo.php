@@ -3,7 +3,7 @@
                     <div class="form-dados">
                         <div>
                             <label for="titulo">Título</label>
-                            <input id="titulo" required type="text" name="titulo">
+                            <input id="titulo" required type="text" name="cadastroTitulo">
                         </div>
 
                         <div>
@@ -32,7 +32,7 @@
                         <input type="submit" name="envio" value="Enviar">
                     </div>
                     <div class="enviar">
-                        <a href="home.php">Voltar</button>
+                        <a href="menuArtigos.php">Voltar</button>
                     </div>
                 </div>
             </form>

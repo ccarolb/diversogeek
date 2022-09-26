@@ -1,5 +1,9 @@
 <?php
+include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
 session_start();
+if(!isset($_SESSION['login'])) {
+    verificaSessao();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,9 +51,9 @@ session_start();
 
     <main>
 
-        <h1>Login</h1>
+        <h1>Gerenciamento de Artigos</h1>
         <div class="form">
-       <?php           
+       <?php
         include_once ('templates'.DIRECTORY_SEPARATOR.'menuArtigos.php');
        ?>
         </div>

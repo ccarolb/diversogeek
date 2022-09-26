@@ -1,3 +1,10 @@
+<?php
+include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
+session_start();
+if(!isset($_SESSION['login'])) {
+    verificaSessao();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -35,7 +42,7 @@
                 <li><a id="home" href="index.html">home</a></li>
                 <li><a id="contato" href="contato.html">contato</a></li>
                 <li><a id="sobre">sobre</a></li>
-                <li><a href="#">cinema</a></li>
+                <li><a href="login.php">login</a></li>
                 <li><a href="#">animes</a></li>
                 <li><a href="#">séries</a></li>
             </ul>
@@ -46,9 +53,9 @@
 
         <h1>Login</h1>
         <div class="form">
-       <?php 
-            include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
-            constroiMenu();
+       <?php           
+        include_once ('templates'.DIRECTORY_SEPARATOR.'tabelaTags.php');
+
         ?>
         </div>
 

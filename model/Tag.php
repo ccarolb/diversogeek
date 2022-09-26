@@ -75,7 +75,7 @@ class Tag {
 
         try {
 
-            $sql = $pdo->prepare("select nm_tag from tb_tags");
+            $sql = $pdo->prepare("select * from tb_tags");
             $sql->execute();
             return $sql->fetchAll();
 
@@ -83,6 +83,35 @@ class Tag {
             throw new Exception($e->getMessage());
         }
         
+    }
+
+    public function editarTag($idTag) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        
+        try {
+                $sql = $pdo->prepare("update tb_tags set nm_tag = :nm_tag where id_tag =".$idTag);
+                $sql->bindValue(':nm_tag', $this->nome, PDO::PARAM_STR);
+                $sql->execute();
+                
+                echo 'Tag alterada com sucesso.';
+
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+    }
+
+    public function excluirTag($idTag) {
+        include('..'.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'conexaoBd.php');
+        
+        try {
+                $sql = $pdo->prepare("delete from tb_tags where id_tag =".$idTag);
+                $sql->execute();
+                echo 'Tag excluída com sucesso.';
+        } catch(Exception $e) {
+            echo 'Não é possível excluir uma tag que está sendo utilizada em um artigo.';
+        }
+
     }
 
 }
