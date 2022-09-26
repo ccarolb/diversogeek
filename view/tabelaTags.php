@@ -51,7 +51,7 @@ if(!isset($_SESSION['login'])) {
 
     <main>
 
-        <h1>Login</h1>
+        <h1>Gerenciar tags</h1>
         <div class="form">
        <?php           
         include_once ('templates'.DIRECTORY_SEPARATOR.'tabelaTags.php');

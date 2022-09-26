@@ -44,7 +44,7 @@
 
     <main>
 
-        <h1>Login</h1>
+        <h1>Cadastrar novo usuário</h1>
         <div class="form">
        <?php 
             include_once '..'.DIRECTORY_SEPARATOR.'controller'.DIRECTORY_SEPARATOR.'usuario.php';
